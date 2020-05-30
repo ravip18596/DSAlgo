@@ -65,6 +65,7 @@ There are a total of n courses you have to take, labeled from 0 to n-1.Some cour
 ###Solution 2
 
 ```go
+package main
 func findOrder(numCourses int, prerequisites [][]int) []int {
     // step -1 check if the graph is acyclic directed graph
     var adj [][]int

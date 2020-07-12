@@ -27,6 +27,5 @@ func uniquePaths(m int, n int) int {
     }
     return dp[m-1][n-1]
 }
-
 ```
 

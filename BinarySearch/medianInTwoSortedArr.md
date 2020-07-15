@@ -39,7 +39,6 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
     }
     start,end := 0,x
     for start <= end{
-        
         partitionX := (start+end)>>1
         partitionY := (x+y+1)>>1 - partitionX
         minRightX,minRightY,maxLeftX,maxLeftY := INT_MAX,INT_MAX,INT_MIN,INT_MIN

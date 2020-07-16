@@ -46,3 +46,58 @@ func isSymmetric(root *TreeNode) bool {
 ```
 
 `Iterative Solution`
+
+```go
+package main
+type TreeNode struct {
+      Val int
+      Left *TreeNode
+      Right *TreeNode
+}
+type Queue struct{
+    arr []*TreeNode
+}
+
+func Constructor() Queue {
+    q := Queue{}
+    q.arr = make([]*TreeNode,0)
+    return q
+}
+
+func (q *Queue) Enqueue(x *TreeNode) {
+    q.arr = append(q.arr,x)
+}
+
+func (q *Queue) Dequeue() *TreeNode{
+    temp := q.arr[0]
+    q.arr = q.arr[1:]
+    return temp
+}
+
+func (q *Queue) isEmpty() bool{
+    return len(q.arr)==0
+}
+func isSymmetric(root *TreeNode) bool {
+    q := Constructor()
+    q.Enqueue(root)
+    q.Enqueue(root)
+    for !q.isEmpty(){
+        t1 := q.Dequeue()
+        t2 := q.Dequeue()
+        if t1 == nil && t2 ==nil{
+            continue
+        }
+        if t1 ==nil || t2 ==nil{
+            return false
+        }
+        if t1.Val != t2.Val{
+            return false
+        }
+        q.Enqueue(t1.Right)
+        q.Enqueue(t2.Left)
+        q.Enqueue(t1.Left)
+        q.Enqueue(t2.Right)
+    }
+    return true
+}
+```

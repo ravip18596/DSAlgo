@@ -71,3 +71,76 @@ func isCousins(root *TreeNode, x int, y int) bool {
 
 `BFS - Level Order Traversal`
 
+```go
+package main
+ // Definition for binary tree
+  type treeNode struct {
+      left treeNode
+      value int
+      right treeNode
+  }
+
+type Queue struct{
+    arr []*treeNode
+}
+
+func Constructor() Queue {
+    q := Queue{}
+    q.arr = make([]*treeNode,0)
+    return q
+}
+
+func (q *Queue) Enqueue(x *treeNode) {
+    q.arr = append(q.arr,x)
+}
+
+func (q *Queue) Dequeue() *treeNode{
+    temp := q.arr[0]
+    q.arr = q.arr[1:]
+    return temp
+}
+
+func (q *Queue) isEmpty() bool{
+    return len(q.arr)==0
+}
+
+func solve(A *treeNode , B int )  ([]int) {
+    
+    q := Constructor()
+    q.Enqueue(A)
+    q.Enqueue(nil)
+    m := make(map[int][]int)
+    var currentLevel,level int
+    var levelNodes []int
+    for !q.isEmpty(){
+        front := q.Dequeue()
+        if front == nil{
+            m[level] = levelNodes
+            levelNodes = []int{}
+            level++
+            if !q.isEmpty(){
+                q.Enqueue(nil)
+            }
+        }else{
+            levelNodes = append(levelNodes,front.value)
+            if A.left != nil && A.left.value == B{
+                currentLevel = level
+            }else if A.right != nil && A.right.value == B{
+                currentLevel = level
+            }else{
+                if A.left != nil{
+                    q.Enqueue(A.left)
+                }
+                if A.right != nil{
+                    q.Enqueue(A.right)
+                }
+            }
+            //fmt.Println("currentLevel is ",currentLevel," m ",m)
+        }
+    }
+    //fmt.Println(m,level,currentLevel)
+    nodes :=  m[currentLevel+1]
+    return nodes
+}
+
+```

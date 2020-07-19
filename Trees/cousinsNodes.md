@@ -74,11 +74,11 @@ func isCousins(root *TreeNode, x int, y int) bool {
 ```go
 package main
  // Definition for binary tree
-  type treeNode struct {
-      left treeNode
-      value int
-      right treeNode
-  }
+type treeNode struct {
+  left treeNode
+  value int
+  right treeNode
+}
 
 type Queue struct{
     arr []*treeNode
@@ -138,7 +138,7 @@ func solve(A *treeNode , B int )  ([]int) {
             //fmt.Println("currentLevel is ",currentLevel," m ",m)
         }
     }
-    //fmt.Println(m,level,currentLevel)
+    //Kfmt.Println(m,level,currentLevel)
     nodes :=  m[currentLevel+1]
     return nodes
 }

@@ -50,3 +50,25 @@ func findMin(nums []int) int {
 
 ```
 
+`Above problem with duplicates allowed`
+
+```go
+package main
+func findMin(nums []int) int {
+    //check if it rotated
+    low,high := 0,len(nums)-1
+    for low<high{
+        mid := low + (high-low)>>1
+        if nums[mid]>nums[high]{
+            // it means that min is on the right
+        	low = mid+1
+        }else if nums[mid]<nums[high]{
+            high=mid
+        }else{
+        	//arr[mid]==arr[high]
+        	high--
+        }
+    }
+    return nums[low]
+}
+```

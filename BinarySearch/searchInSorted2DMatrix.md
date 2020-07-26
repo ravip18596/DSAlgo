@@ -37,7 +37,7 @@ func searchMatrix(matrix [][]int, target int) bool {
             return true
         }else if matrix[i][j]>target{
             j--
-        }else{
+        }else{  
             i++
         }
     }

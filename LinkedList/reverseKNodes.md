@@ -22,7 +22,7 @@ type ListNode struct {
 }
  
 func reverseKGroup(head *ListNode, k int) *ListNode {
-    var curr *ListNode;
+    var curr *ListNode
     curr = head
     count := 0
     for(curr != nil && count != k){
@@ -40,6 +40,6 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
         }
         head = curr
     }
-    return head;
+    return head
 }
 ```

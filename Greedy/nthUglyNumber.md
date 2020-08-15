@@ -31,7 +31,7 @@ int nthUglyNumber(int n) {
 }
 ```
 
-`DP solution Time-O(N)`
+`DP solution Time-O(N) Space - O(N)`
 
 ```textmate
 Let's say we have the first 3 ugly numbers 1, 2, 3.

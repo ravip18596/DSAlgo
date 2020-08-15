@@ -29,6 +29,7 @@ Output: false
 ```
 
 ```go
+package main
 func possibleBipartition(N int, dislikes [][]int) bool {
     //bfs solution
     visited := make([]bool,N+1) //whether node visited or not for traversal

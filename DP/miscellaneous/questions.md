@@ -25,6 +25,7 @@ Follow up:
 `golang`
 
 ```go
+package main
 func countBits(num int) []int {
     var res []int
     res = make([]int,num+1)
@@ -45,13 +46,12 @@ func countBits(num int) []int {
 
 `cpp`
 
-```
-    vector<int> countBits(int num) {
-        vector<int> sol(num+1,0);
-        for(int i=1;i<=num;i++){
-            sol[i] = sol[i>>1] + (i&1);
-        }
-        return sol;
+```cgo
+vector<int> countBits(int num) {
+    vector<int> sol(num+1,0);
+    for(int i=1;i<=num;i++){
+        sol[i] = sol[i>>1] + (i&1);
     }
-
+    return sol;
+}
 ```

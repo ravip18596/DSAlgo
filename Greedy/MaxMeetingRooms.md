@@ -30,7 +30,7 @@ Problem similar to the activity selection problem.
 
 `Solution`
 
-```cpp
+```cgo
 #include <bits/stdc++.h> 
 using namespace std;
 

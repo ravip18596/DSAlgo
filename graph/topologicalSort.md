@@ -4,7 +4,7 @@
 
 `Given a Directed Graph. Find any Topological Sorting of that Graph.`
 
-```
+```cgo
 void dfs(int node,vector<int> adj[],vector<bool>& v,stack<int>& s)
 {
     v[node]=true;

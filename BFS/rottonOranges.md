@@ -80,7 +80,7 @@ func isSafe(i,j,x,y int) bool{
     return true
 }
 ```
-`BFS solution 2`
+`BFS solution Level order traversal`
 ```go
 package main
 type pos struct{

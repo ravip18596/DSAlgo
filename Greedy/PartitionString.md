@@ -22,6 +22,8 @@ Solution
 ```text
 For each letter encountered, process the last occurrence of that letter,
 extending the current partition [start, end] appropriately.
+Time - O(N)
+Space - O(1)
 ```
 ```go
 package main

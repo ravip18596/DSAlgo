@@ -12,12 +12,13 @@ Solution
 ```text
 we need that (sum(nums) - [subarray sum] )%p = 0
 sum(nums)%p == subarrSum%p
-sum(nums)%p == (F[i] - F[j<i])%p
-F[j>i]%p = F[i]%p - sum(nums)%p
+sum(nums)%p == (Sum[0..i] - Sum[0..j<i])%p
+Sum[0..j<i]%p = Sum[0..i]%p - sum(nums)%p
 
 Time - O(N)
 Space - O(N)
 ```
+`Golang`
 ```go
 package main
 func minSubarray(nums []int, p int) int {
@@ -54,4 +55,22 @@ func min(a,b int) int{
     }
     return b
 }
+```
+`Python`
+```python3
+def minSubarray(self, nums: List[int], p: int) -> int:
+     arr_sum = sum(nums)
+     rem = arr_sum%p
+     if rem == 0:return 0 
+     d = dict()
+     d[0]=-1
+     modSum,ans = 0,len(nums)
+     for i in range(len(nums)):
+         modSum = (modSum+nums[i])%p
+         key = (modSum - rem)%p
+         if key in d.keys():
+             ans =  min(ans,i-d[key])
+         d[modSum]=i
+     
+     return ans if ans<len(nums) else -1
 ```

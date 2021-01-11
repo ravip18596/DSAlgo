@@ -69,5 +69,16 @@ func maximumUnits(boxTypes [][]int, truckSize int) int {
 `Python 3`
 
 ```python
-
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        boxTypes.sort(key=lambda x:-x[1])
+        maxUnits=0
+        for box,unit in boxTypes:
+            if truckSize <= 0:
+                break
+            boxes = min(truckSize,box)
+            maxUnits += unit * boxes
+            truckSize -= boxes
+                
+        return maxUnits
 ```

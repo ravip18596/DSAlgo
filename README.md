@@ -6,9 +6,13 @@ DSAlgo
 
 ## String
 
+| Problem | Solution |
+|---------|----------|
+| [1704. Determine if String Halves Are Alike](https://leetcode.com/problems/determine-if-string-halves-are-alike/) | [string/strFreqMatch.md](string/strFreqMatch.md)| 
+|[1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/)| [Greedy/maxUnitsTruck.md](Greedy/maxUnitsTruck.md)|
+
+## Linked List
 
 | Problem | Solution |
 |---------|----------|
-| [1704. Determine if String Halves Are Alike](https://leetcode.com/problems/determine-if-string-halves-are-alike/) | [Solution](string/strFreqMatch.md)| 
-|[1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/)| [Solution](Greedy/maxUnitsTruck.md)|
-
+|[1721. Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)| [LinkedList/swapNodesInLinkedList.md](LinkedList/swapNodesInLinkedList.md)|

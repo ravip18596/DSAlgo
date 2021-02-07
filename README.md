@@ -16,3 +16,9 @@ DSAlgo
 | Problem | Solution |
 |---------|----------|
 |[1721. Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)| [LinkedList/swapNodesInLinkedList.md](LinkedList/swapNodesInLinkedList.md)|
+
+## Greedy
+
+| Problem | Solution |
+|---------|----------|
+|[821. Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|[Greedy/shortestCharDist.md](Greedy/shortestCharDist.md)|

@@ -22,3 +22,10 @@ DSAlgo
 | Problem | Solution |
 |---------|----------|
 |[821. Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|[Greedy/shortestCharDist.md](Greedy/shortestCharDist.md)|
+
+
+## Binary Search
+            
+| Problem | Solution |
+|---------|----------|
+|[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[BinarySearch/searchInRotatedSortedArray.md](BinarySearch/searchInRotatedSortedArray.md)|

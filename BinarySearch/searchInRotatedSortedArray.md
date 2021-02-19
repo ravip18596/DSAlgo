@@ -17,7 +17,44 @@ Output: -1
 
 `Solution`
 
+`Python`
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        if n<=0:
+            return -1
+        
+        rotated = 0
+        if nums[0] > nums[n-1]:
+            for i in range(n-1):
+                rotated += 1
+                if nums[i] > nums[i+1]:
+                    break
+        
+        return self.binary_search(nums,rotated,target)
+    
+    def binary_search(self, nums: List[int], rotated: int, target: int) -> int:
+        n = len(nums)
+        s,e = 0,n-1
+        while s<=e:
+            m = (s+e)//2
+            rotated_m = (m+rotated)%n
+            if nums[rotated_m] == target:
+                return rotated_m
+            elif nums[rotated_m] > target:
+                e = m-1
+            else:
+                s = m+1
+            
+        return -1
+```
+
+`Golang`
+
 ```go
+package main
+
 func search(nums []int, target int) int {
     rotation := 0
     n := len(nums)

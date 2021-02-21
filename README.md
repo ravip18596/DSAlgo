@@ -4,6 +4,13 @@ DSAlgo
 
 # Topics
 
+## Array
+
+| Problem | Solution |
+|---------|----------|
+|[1574. Shortest Subarray to be Removed to Make Array Sorted](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/)|[Array/shortestSubarrToRemoveToMakeArrSorted.md](Array/shortestSubarrToRemoveToMakeArrSorted.md)|
+
+
 ## String
 
 | Problem | Solution |

@@ -35,6 +35,42 @@ Thought Process
 Time  - O(N) 
 Space - O(1)
 ```
+```python
+class Solution:
+    def findLengthOfShortestSubarray(self, arr: List[int]) -> int:
+        n = len(arr)
+        if n<=1: # there will be no need to sort less than 2 len list
+            return 0
+        
+        # find left index till when arr is sorted
+        left,right = 0,n-1
+        while left<n-1 and arr[left] <= arr[left+1]:
+            left+=1
+        
+        if left == n-1: # the arr is sorted
+            return 0
+            
+        # find rightmost index till which arr is sorted    
+        while right>0 and arr[right-1] <= arr[right]:
+            right-=1
+        
+        length = min(n-left-1,right)
+        #print(left,right,length)
+        
+        # using sliding window to further reduce this length
+        start,end = 0,right
+        
+        while start <= left and end < n:
+            if arr[start] > arr[end]:
+                end+=1
+            else:
+                length = min(length, end-start-1)
+                #print(start,end,length)
+                start+=1
+        return length
+        
+```
+
 ```go
 package main
 func findLengthOfShortestSubarray(arr []int) int {

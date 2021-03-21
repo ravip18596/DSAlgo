@@ -1,14 +1,17 @@
-```text
+Problem
+--------
 Given a binary tree, determine if it is a valid binary search tree (BST).
 
 Assume a BST is defined as follows:
 
-    The left subtree of a node contains only nodes with keys less than the node’s key.
-    The right subtree of a node contains only nodes with keys greater than the node’s key.
-    Both the left and right subtrees must also be binary search trees.
+The left subtree of a node contains only nodes with keys less than the node’s key.
+The right subtree of a node contains only nodes with keys greater than the node’s key.
+Both the left and right subtrees must also be binary search trees.
 
-Example :
+Example
+-------
 
+```text
 Input : 
    1
   /  \
@@ -24,8 +27,9 @@ Input :
 
 Output : 1 or True
 ```
-`Solution`
-
+Solution
+--------
+`Golang`
 ```go
 package main
 type TreeNode struct {
@@ -49,4 +53,22 @@ func isValidBSTUtil(root *TreeNode,mini,maxi int) bool{
     }
     return false
 }
+```
+`Python`
+
+```python
+class TreeNode:
+    def __init__(self,val=0,left=None,right=None):
+        self.val = val
+        self.left=left
+        self.right=right
+
+class Solution:
+    def isValidBST(self, root: TreeNode, mini=float('-inf'), maxi=float('inf')) -> bool:
+        if root is None:
+            return True
+        
+        left_bst = self.isValidBST(root.left,mini,root.val)
+        right_bst = self.isValidBST(root.right,root.val,maxi)
+        return left_bst and right_bst and root.val > mini and root.val < maxi
 ```

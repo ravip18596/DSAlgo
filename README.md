@@ -10,6 +10,7 @@ DSAlgo
 |---------|----------|
 |[1574. Shortest Subarray to be Removed to Make Array Sorted](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/)|[Array/shortestSubarrToRemoveToMakeArrSorted.md](Array/shortestSubarrToRemoveToMakeArrSorted.md)|
 |[442. Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)| [Array/FindAllDuplicates.md](Array/FindAllDuplicates.md)|
+|[15. 3Sum](https://leetcode.com/problems/3sum/)|[Array/3Sum.md](Array/3Sum.md)|
 
 
 ## String
@@ -37,3 +38,16 @@ DSAlgo
 | Problem | Solution |
 |---------|----------|
 |[33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)|[BinarySearch/searchInRotatedSortedArray.md](BinarySearch/searchInRotatedSortedArray.md)|
+
+## Trees
+
+| Problem | Solution |
+|---------|----------|
+|[112. Path Sum](https://leetcode.com/problems/path-sum/)|[Trees/pathSum.md](Trees/pathSum.md)|
+|[98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Trees/ValidBST.md](Trees/ValidBST.md)|
+
+## Depth First Search
+
+| Problem | Solution |
+|---------|----------|
+|[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)||

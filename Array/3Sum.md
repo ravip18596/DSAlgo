@@ -51,3 +51,36 @@ func threeSum(nums []int) [][]int {
     return result
 }
 ```
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = list(list())
+        if len(nums) < 3:
+            return result
+        nums = sorted(nums)
+        n = len(nums)
+        for i in range(n-2):
+            if i>0 and nums[i-1] == nums[i]:
+                continue
+
+            sum = -1 * nums[i]
+            s,e = i+1,n-1
+            while s<e:
+                two_sum = nums[s] + nums[e]
+                if two_sum < sum:
+                    s+=1
+                elif two_sum > sum:
+                    e-=1
+                else:
+                    triplet = [ nums[i],nums[s],nums[e] ]
+                    result.append(triplet)
+                    s,e = s+1,e-1
+                    while s<e and nums[s] == triplet[1]:
+                        s+=1
+
+                    while s<e and nums[s] == triplet[2]:
+                        e-=1
+
+        return result                
+```

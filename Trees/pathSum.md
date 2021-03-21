@@ -1,4 +1,5 @@
-```text
+Problem
+-------
 Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
 
 Note: A leaf is a node with no children.
@@ -6,7 +7,7 @@ Note: A leaf is a node with no children.
 Example:
 
 Given the below binary tree and sum = 22,
-
+```text
       5
      / \
     4   8
@@ -14,12 +15,13 @@ Given the below binary tree and sum = 22,
   11  13  4
  /  \      \
 7    2      1
-
-return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 ```
 
-`Solution`
+return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 
+Solution
+--------
+`Go`
 ```go
 package main
 type TreeNode struct {
@@ -42,4 +44,27 @@ func hasPathSum(root *TreeNode, sum int) bool {
     r := hasPathSum(root.Right,sum-root.Val)
     return l || r
 }
+```
+
+`Python 3`
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
+class Solution:
+    def hasPathSum(self, root: TreeNode, targetSum: int) -> bool:
+        if root is None:
+            return False
+        if root.left is None and root.right is None and targetSum==root.val:
+            return True
+        
+        left_v = self.hasPathSum(root.left,targetSum-root.val)
+        if left_v==True:
+            return left_v
+        right_v = self.hasPathSum(root.right,targetSum-root.val)
+        return left_v or right_v
 ```

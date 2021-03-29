@@ -31,6 +31,7 @@ DSAlgo
 | Problem | Solution |
 |---------|----------|
 |[821. Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|[Greedy/shortestCharDist.md](Greedy/shortestCharDist.md)|
+|[Minimum Cost to Connect Sticks](https://www.lintcode.com/problem/minimum-cost-to-connect-sticks)|[Greedy/MinCostConnectRopes.md](Greedy/MinCostConnectRopes.md)
 
 
 ## Binary Search
@@ -50,4 +51,5 @@ DSAlgo
 
 | Problem | Solution |
 |---------|----------|
-|[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)||
+|[200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | [DFS/NumberOfIslands.md](DFS/NumberOfIslands.md)|
+|[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)| []()|

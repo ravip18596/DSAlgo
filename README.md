@@ -53,3 +53,9 @@ DSAlgo
 |---------|----------|
 |[200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | [DFS/NumberOfIslands.md](DFS/NumberOfIslands.md)|
 |[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)| []()|
+
+Hashmap
+-------
+| Problem | Solution |
+|---------|----------|
+|[957. Prison Cells After N Days](https://leetcode.com/problems/prison-cells-after-n-days/) | [HashMap/PrisonCellsAfterNdays.md](HashMap/PrisonCellsAfterNdays.md)|

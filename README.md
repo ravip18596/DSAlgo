@@ -53,7 +53,7 @@ DSAlgo
 | Problem | Solution |
 |---------|----------|
 |[200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | [DFS/NumberOfIslands.md](DFS/NumberOfIslands.md)|
-|[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)| []()|
+|[1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/)| [DFS/CriticalConnectionsInNetwork.md](DFS/CriticalConnectionsInNetwork.md)|
 
 Hashmap
 -------

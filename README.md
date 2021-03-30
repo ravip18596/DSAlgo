@@ -25,6 +25,7 @@ DSAlgo
 | Problem | Solution |
 |---------|----------|
 |[1721. Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)| [LinkedList/swapNodesInLinkedList.md](LinkedList/swapNodesInLinkedList.md)|
+|[138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|[LinkedList/copyListWithRandomPointer.md](LinkedList/copyListWithRandomPointer.md)|
 
 ## Greedy
 

@@ -19,6 +19,8 @@ DSAlgo
 |---------|----------|
 | [1704. Determine if String Halves Are Alike](https://leetcode.com/problems/determine-if-string-halves-are-alike/) | [string/strFreqMatch.md](string/strFreqMatch.md)| 
 |[1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck/)| [Greedy/maxUnitsTruck.md](Greedy/maxUnitsTruck.md)|
+|[3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|[String/LongestSubstringWithoutRepeatingChar.md](String/LongestSubstringWithoutRepeatingChar.md)|
+|[290. Word Pattern](https://leetcode.com/problems/word-pattern/solution/)|[]()|
 
 ## Linked List
 

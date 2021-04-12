@@ -1,6 +1,5 @@
 Problem
 -------
-```text
 There are N network nodes, labelled 1 to N.
 
 Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, 
@@ -8,7 +7,7 @@ v is the target node, and w is the time it takes for a signal to travel from sou
 
 Now, we send a signal from a certain node K. How long will it take for all nodes to receive the signal? 
 If it is impossible, return -1.
-```
+
 Example
 -------
 ![](https://assets.leetcode.com/uploads/2019/05/23/931_example_1.png)
@@ -91,4 +90,36 @@ func max(a,b int)int{
     }
     return b
 }
+```
+```python
+import heapq
+import collections
+class Solution:
+    def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
+        graph = collections.defaultdict(list)
+        for u,v,w in times:
+            graph[u].append((v,w))
+        #print(f"graph is {graph}")
+        
+        time = dict()
+        queue = []
+        queue.append((0,k)) # keeping time as first tuple ele for heapify
+        heapq.heapify(queue)
+        while len(queue)>0:
+            node_time,node = heapq.heappop(queue)
+            if node in time.keys():
+                # if already visited
+                continue
+            # mark node visited and store time
+            time[node] = node_time
+            for neigh_node,neigh_time in graph[node]:
+                # check if neigh time is not visited.
+                if neigh_node not in time.keys():
+                    new_time = neigh_time + node_time
+                    heapq.heappush(queue,(new_time,neigh_node))
+
+        print(time)
+        if len(time.keys()) != n:
+            return -1
+        return max(time.values())
 ```

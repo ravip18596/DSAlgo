@@ -99,12 +99,12 @@ Output:
 
 ```python
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums: list[int]) -> list[list[int]]:
         result = list()
         self.util(nums,[],result)
         return result
     
-    def util(self,nums: List[int],path: List[int],result :List[List[int]]):
+    def util(self,nums: list[int],path: list[int],result :list[list[int]]):
         if not nums:
             result.append(path)
         """   
@@ -128,7 +128,6 @@ class Solution:
         """
         for i in range(len(nums)):
             self.util(nums[:i]+nums[i+1:],path+[nums[i]],result)
-
 ```
 
 `cpp`

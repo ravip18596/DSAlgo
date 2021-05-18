@@ -49,6 +49,7 @@ DSAlgo
 |---------|----------|
 |[112. Path Sum](https://leetcode.com/problems/path-sum/)|[Trees/pathSum.md](Trees/pathSum.md)|
 |[98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|[Trees/ValidBST.md](Trees/ValidBST.md)|
+|[297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/submissions)|[Trees/serializeDeserialisedBinaryTree.md](Trees/serializeDeserialisedBinaryTree.md)|
 
 ## Depth First Search
 

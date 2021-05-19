@@ -1,8 +1,6 @@
 Problem
 -------
-```text
 Given a string s, find the length of the longest substring without repeating characters.
-```
 
 Example
 -------
@@ -35,12 +33,12 @@ Output: 0
 
 Solution
 --------
-```text
-Using hashmap to store last occurence of char
-and start maintains the current distinct subarr window
-Time - O(N)
-Space - O(N)
-```
+
+Using hashmap to store last occurrence of char and start maintains the current distinct sub-array window
+- Time - O(N)
+- Space - O(N)
+
+`Golang`
 ```go
 package main
 func lengthOfLongestSubstring(s string) int {
@@ -64,4 +62,8 @@ func lengthOfLongestSubstring(s string) int {
     }
     return maxLen
 }
+```
+`Python`
+```python
+
 ```

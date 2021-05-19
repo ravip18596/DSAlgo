@@ -1,8 +1,8 @@
-```text
 There is one meeting room in a firm. There are N meetings in the form of (S[i], F[i]) where S[i] is start time of meeting i and F[i] is finish time of meeting i.
 What is the maximum number of meetings that can be accommodated in the meeting room?
 
-Example:
+`Example`:
+```text
 Input:
 2
 6
@@ -14,21 +14,20 @@ Input:
 
 Output:
 1 2 4 5
-6 7 1 
+6 7 1
 ```
-
 `Solution approach`
 
-```text
 Problem similar to the activity selection problem.
 1) Sort the meeting according to their finishing time
 2) Select the first meeting from the sorted array and print it.
 3) Perform for remaining activities in the sorted array.
     a) If the start time of this meeting is greater than or equal to the finish time of previously selected activity then select this activity and print it.
-```
 
 
-`Solution`
+
+Solution
+--------
 
 ```cgo
 #include <bits/stdc++.h> 

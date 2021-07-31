@@ -1,31 +1,31 @@
 Problem
 -------
-```text
+
 Given a list of non-negative numbers and a target integer k, 
 write a function to check if the array has a continuous subarray 
 of size at least 2 that sums up to a multiple of k.
-```
 
 Examples
 --------
-```text
-Input: [23, 2, 4, 6, 7],  k=6
-Output: True
-Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.
+1) Example 1
+- Input: [23, 2, 4, 6, 7],  k=6
+- Output: True
+- Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.
 
-Input: [23, 2, 6, 4, 7],  k=6
-Output: True
-Explanation: Because [23, 2, 6, 4, 7] is an continuous subarray of size 5 and sums up to 42.
-```
+2) Example 2
+- Input: [23, 2, 6, 4, 7],  k=6
+- Output: True
+- Explanation: Because [23, 2, 6, 4, 7] is an continuous subarray of size 5 and sums up to 42.
+
 Solution
 ---------
-```text
+
 the the difference is d between a and b, such as d = b - a(b is on the right of a). 
 you want d is multiple of k, so you just need d % k = 0. 
 Because d = b - a, so d % k = 0 = (b - a) %k. so (b-a)%k=0 equal b%k - a%k = 0, then b%k = a%k.
-Time - O(N)
-Space - O(N) 
-```
+- Time - O(N)
+- Space - O(N) 
+
 
 ```go
 package main

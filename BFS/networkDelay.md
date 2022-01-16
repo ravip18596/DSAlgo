@@ -123,3 +123,29 @@ class Solution:
             return -1
         return max(time.values())
 ```
+
+# BFS Solution
+
+```python
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        graph = collections.defaultdict(list)
+        for time in times:
+            u, v, w = time
+            graph[u].append((v, w))
+            
+        inf = float('inf')
+        visit_time = [inf]*n
+        queue = [(k,0)]
+        
+        while len(queue)>0:
+            u, time = queue[0] // queue pop op
+            queue = queue[1:] // deque op
+            if time < visit_time[u-1]:
+                visit_time[u-1] = time
+                for v, w in graph[u]:
+                    queue.append((v, time + w))
+        
+        ans = max(visit_time)
+        return ans if ans < inf else -1
+```

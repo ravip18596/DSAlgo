@@ -47,10 +47,24 @@ func buildMaxHeap(arr []int) {
 	}
 }
 
+func heapSort(arr []int) {
+    // irst we use BuildMaxHeap to turn the array into a max-heap.
+    buildMaxHeap(arr)
+    n := len(arr)
+    // extract the maximum (i.e. the root) from the heap
+    // swapping it with the last element in the array 
+    for i:=n-1;i>=0;i--{
+        arr[0], arr[i] = arr[i], arr[0]
+        // At this point, the heap property is violated because the root may be smaller than other elements
+        // now the heap property is voilated
+        // run heapify on root to restore heap property
+        heapify(arr, 0)         
+}
+
 func main() {
 	arr := []int{3, 2, 1, 5, 6}
-	buildMaxHeap(arr)
-	fmt.Println("max heap is ", arr)
+	heapSort(arr)
+	fmt.Println("sorted arr is ", arr)
 }
 
 /* Output

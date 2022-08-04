@@ -1,4 +1,4 @@
-Heap Data Structure Implementation
+`           Heap Sort
 ----------------------------------
 
 - [Heap Notes](https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture4.pdf)
@@ -18,14 +18,13 @@ package main
 
 import "fmt"
 
-func maxHeapify(arr []int, i int) {
+func maxHeapify(arr []int, i, n int) {
 	leftChild, rightChild := 2*i+1, 2*i+2
-	n := len(arr)
 	largest := i
-	if leftChild < n && arr[leftChild] > arr[largest] {
+	if leftChild <= n && arr[leftChild] > arr[largest] {
 		largest = leftChild
 	}
-	if rightChild < n && arr[rightChild] > arr[largest] {
+	if rightChild <= n && arr[rightChild] > arr[largest] {
 		largest = rightChild
 	}
 
@@ -34,25 +33,25 @@ func maxHeapify(arr []int, i int) {
 		arr[largest], arr[i] = arr[i], arr[largest]
 		// the other subtree of parent is already a max heap
 		// so now check the heap subtree, from where the largest came from, whether that subtree is heap or not
-		maxHeapify(arr, largest)
+		maxHeapify(arr, largest, n)
 	}
 }
 
-func buildMaxHeap(arr []int) {
-	// leaf nodes of heap are already trivial max heap.
+func heapSortArr(arr []int) {
 	// So run heapify operation on parent nodes starting from n/2 to 0
 	n := len(arr)
-	for i := n/2 - 1; i >= 0; i-- {
-		maxHeapify(arr, i)
+	for i := n - 1; i > 0; i-- {
+		// swap root with ith ele
+		arr[i], arr[0] = arr[0], arr[i]
+		maxHeapify(arr, 0, i-1)
 	}
 }
 
 func main() {
 	arr := []int{3, 2, 1, 5, 6}
-	buildMaxHeap(arr)
-	fmt.Println("max heap is ", arr)
+	heapSortArr(arr)
+	fmt.Println("arr is :",arr)
 }
-
 /* Output
 max heap is  [6 5 1 3 2]
 */

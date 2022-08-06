@@ -17,14 +17,15 @@ DSAlgo
 |[1574. Shortest Subarray to be Removed to Make Array Sorted](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/)|[Array/shortestSubarrToRemoveToMakeArrSorted.md](Array/shortestSubarrToRemoveToMakeArrSorted.md)|
 |[442. Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)| [Array/FindAllDuplicates.md](Array/FindAllDuplicates.md)|
 |[15. 3Sum](https://leetcode.com/problems/3sum/)|[Array/3Sum.md](Array/3Sum.md)|
+|[121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)| [best_time_to_buy_sell_stock](Array/best_time_to_buy_sell_stock.md)
 
 ### Breadth First Search
 
-| Problem | Solution |
-|---------|----------|
-|[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [BFS/networkDelay.md](BFS/networkDelay.md)|
-|[994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)| [DFS/CriticalConnectionsInNetwork.md](BFS/rottenOranges.md)|
-|[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)| [BFS/shortestPathInABinaryMatrix.md](BFS/shortestPathInABinaryMatrix.md)|
+| Problem | Solution                                                                  |
+|---------|---------------------------------------------------------------------------|
+|[743. Network Delay Time](https://leetcode.com/problems/network-delay-time/) | [networkDelay](BFS/networkDelay.md)                                       |
+|[994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)| [rottenOranges](BFS/rottenOranges.md)                                     |
+|[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)| [shortestPathInABinaryMatrix](BFS/shortestPathInABinaryMatrix.md)         | 
 
 ## String
 

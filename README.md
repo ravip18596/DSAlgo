@@ -66,6 +66,10 @@ DSAlgo
 |[297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/submissions)|[Trees/serializeDeserialisedBinaryTree.md](Trees/serializeDeserialisedBinaryTree.md)|
 |[Largest BST Subtree In Binary Tree](https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/)|[Trees/LargestBSTSubtreeInBinaryTree.md](Trees/LargestBSTSubtreeInBinaryTree.md)|
 
+### NaryTree
+| Problem | Solution                                           |
+|---------|----------------------------------------------------|
+|[589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) | [preOrderTraversal](NaryTree/preorderTraversal.md) |
 ### Depth First Search
 
 | Problem                                                                                                 | Solution                                     |

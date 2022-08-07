@@ -37,7 +37,10 @@ Travel to station 1. Your tank = 3 - 3 + 3 = 3
 You cannot travel back to station 2, as it requires 4 unit of gas but you only have 3.
 Therefore, you can't travel around the circuit once no matter where you start.
 ```
-`Solution`
+Solution
+--------
+
+### Golang
 ```go
 package main
 func canCompleteCircuit(gas []int, cost []int) int {
@@ -58,4 +61,21 @@ func canCompleteCircuit(gas []int, cost []int) int {
     }
     return startIndex
 }
+```
+
+### Python
+
+```python
+def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+    start_index, start_cost, total_cost = 0, 0, 0
+    n = len(cost)
+    for i in range(n):
+        journey_cost = gas[i] - cost[i]
+        total_cost += journey_cost
+        start_cost += journey_cost
+        if start_cost < 0:
+            start_index, start_cost = i+1, 0
+        
+    # if total gas is less total gas required then circular journey not possible
+    return -1 if total_cost < 0 else start_index
 ```

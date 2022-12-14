@@ -148,3 +148,97 @@ func isSafe(i,j,x,y int) bool{
     return true
 }
 ```
+
+- Python BFS 1
+using None as level counter
+
+```python
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        # count how many fresh oranges are there
+        rows, cols = len(grid), len(grid[0])
+        queue = []
+        
+        fresh = 0
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    fresh+=1
+                elif grid[i][j] == 2:
+                    queue.append((i, j))
+        
+        queue.append(None)
+        if fresh == 0:
+            return 0        
+
+        directions = [(-1,0), (0, 1), (1, 0), (0, -1)]
+        level = 0
+        # first level
+        while len(queue) > 0:
+            front = queue[0]
+            # deque
+            queue = queue[1:]
+            if front is None:
+                level += 1
+                if len(queue)>0:
+                    queue.append(None)
+            else:
+                i, j = front
+                for k in range(len(directions)):
+                    new_i, new_j = i + directions[k][0], j + directions[k][1]
+
+                    if new_i<rows and new_i>=0 and new_j<cols and new_j>=0 and grid[new_i][new_j] == 1:
+                        queue.append((new_i, new_j))
+                        # mark fresh orange visited by making it rotten
+                        grid[new_i][new_j] = 2
+                        fresh -= 1
+                    
+        if fresh > 0:
+            return -1
+    
+        return level-1
+```
+
+- BFS by passing level info into the queue
+
+Faster
+```python
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        # count how many fresh oranges are there
+        rows, cols = len(grid), len(grid[0])
+        queue = []
+        
+        fresh = 0
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    fresh+=1
+                elif grid[i][j] == 2:
+                    queue.append((i, j, 0))
+        
+        if fresh == 0:
+            return 0        
+
+        directions = [(-1,0), (0, 1), (1, 0), (0, -1)]
+        level = 0
+        # first level
+        while len(queue) > 0:
+            front = queue[0]
+            # deque
+            queue = queue[1:]
+            i, j, level = front
+            for k in range(len(directions)):
+                new_i, new_j = i + directions[k][0], j + directions[k][1]
+
+                if new_i<rows and new_i>=0 and new_j<cols and new_j>=0 and grid[new_i][new_j] == 1:
+                    queue.append((new_i, new_j, level+1))
+                    # mark fresh orange visited by making it rotten
+                    grid[new_i][new_j] = 2
+                    fresh -= 1
+                    
+        if fresh > 0:
+            return -1
+    
+        return level
+```

@@ -1,6 +1,4 @@
-from threading import Barrier, Thread
-
-barrier = Barrier(3, timeout=1, action=lambda x: x * 2)
+from threading import Thread
 
 
 class thread(Thread):
@@ -12,8 +10,8 @@ class thread(Thread):
         print(f"ThreadID = {self.thread_ID}")
 
 
-# thread1 = thread(100)
-# thread2 = thread(101)
-# thread3 = thread(102)
+thread1 = thread(100)
+thread2 = thread(101)
+thread3 = thread(102)
 
 

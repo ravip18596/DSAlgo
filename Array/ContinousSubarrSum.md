@@ -58,3 +58,30 @@ func checkSubarraySum(nums []int, k int) bool {
     return false
 }
 ```
+
+- Python
+
+```python
+def checkSubarraySum(self, nums: List[int], target: int) -> bool:
+    n = len(nums)
+    if n<2:
+        return False
+
+    prefix_sum_mod = 0
+    m = {}
+    # in case subarray starts from beginning
+    m[0] = -1
+    for i in range(len(nums)):
+        prefix_sum_mod += nums[i]
+        if target != 0:
+            prefix_sum_mod %= target
+        
+        if prefix_sum_mod in m.keys():
+            index_diff = i - m[prefix_sum_mod]
+            if index_diff >= 2:
+                return True
+        else:
+            m[prefix_sum_mod] = i
+
+    return False
+```

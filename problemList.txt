@@ -1,0 +1,47 @@
+Array + String Problem Practice
+
+1. Product of array except for self
+2. Spiral Matrix
+3. Given four lists A, B, C, D of integer values, compute how many tuples (i, j, k, l) there are such that A[i] + B[j] + C[k] + D[l] is zero.
+4. Container With Most water - Max Area Histogram
+5. Game of life
+6. First missing positive number
+7. Longest consecutive sequence. - use map to find consecutive no.
+8. Find the duplicate no - [a-b = 1, a2-b2 = 7, a+b = 7/1, missing no is b] or floyd cycle detection.
+9. Sliding window maximum - use dequeue
+10. Minimum Window sub-string - Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n). - Two pointers l=0,r=0 + Hashmap
+11. 3-Sum without duplicates - sorting + binary search
+12. Set Matrix Zero - use first row and first col to store info
+13. Longest substring without repeating characters - maintain start of the substring and a map of occurrences of character.  
+14. Longest Palindromic Substring - O(n2) DP solution 
+15. Remove duplicates from sorted array - two pointers
+16. Best time to buy and sell stock 2 - buy and sell multiple times - sum of all local maxima - minima
+17. Does unsorted array contains duplicates - Hashmap and single traversal
+18. Rotate array - reverse 0..n-1 then 0..k-1then k..n-1
+19. Single element,rest twice - xor every element
+20. Plus one an array of digits - increment one from last
+21. Move all zeros to last - two pointer approach (similar to 15)
+22. Two sum - map when not sorted or two pointer
+23. Rotate image matrix clockwise - reverse rows top to bottom and then swap (i,j) to (j,i)
+24. Reverse integer - digits into []int. build up the int again
+25. valid anagram = map to count freq of one string and traverse second string trying to find mismatch
+26. valid palindrome
+27. Longest common prefix in a set of strings - Use trie with nodes having or binary search
+28. Max Sum Contiguous subarray - if the currentSum is negative then cs=current element else cs += current element
+29. Merging overlapping intervals - sort and then use aux array to insert 
+30. Largest number - arrange integer array so that they form largest integer. - convert them into string and sort them using a comparator function and remove trailing zeros.
+31. Pascal triangle
+32. Maximum distance(j-i) such that a[i]<=a[j]  - maintain left min array and right max array and then traverse from start both leftMin and rightMax to find greatest j-i
+33. Next Permutation - find index i - where when traversing from right to left, element is not increasing in ascending order. Then index j traverse from right to i+1 and breaks if arr[i] > arr[j] then swap them and then reverse(arr,k+1,n-1). if i<0 then reverse whole arr.
+34. Wave arr - sort and then swap in pairs
+35. Maximum absolute diff  - min and max (1) of A[i]+i  and (2) A[i]-1 . max diff = max(max1-min1, max2-min2)
+36. Find permutation - string of I and D denoting permutation sequence. use two pointer approach start and end.
+37. Remove all occurrence of a element - two pointer - similar to problem 15 
+38. Pair with given difference - Like Two Sum 
+39. Max contiguous series of 1s with atmost K flips - Two pointer from start, which will left as startIndex and right as endIndex of series.
+40. Power of two for integer > 2^64
+41. Length of the last word - start traversing from right and ignore spaces before and counting the first word and break
+42. Atoi
+43. Longest Palindromic substring - dp[i][j] = str[i]==str[j] && (j-i<=2 || dp[i+1][j-1])
+44. Convert a string to a palindrome - (atmost 1 deletion) - Use two pointer one at start and other at end. If str[left] != str[right] then remove one character at a time and check if it creates palindrome.
+45. Shortest Palindrome - convert a given string into a palindrome by adding a character in front of string.

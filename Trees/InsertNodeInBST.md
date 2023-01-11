@@ -54,3 +54,32 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
     return root
 }
 ```
+
+Slight Variation
+> Note: If K is already present in the BST, don't modify the BST.
+
+```python
+class Node:
+    def __init__(self, val):
+        self.left = None
+        self.right = None
+        self.data = val
+
+def insert(root, Key):
+    # code here
+    if root is None:
+        return Node(Key)
+        
+    # if matching then return existing root.
+    if root.data == Key:
+        return root
+        
+    if root.data > Key:
+        # left
+        root.left = insert(root.left, Key)
+    else:
+        # right
+        root.right = insert(root.right, Key)
+        
+    return root
+```

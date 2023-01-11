@@ -44,12 +44,42 @@ class Solution:
             matrix[i],matrix[j] = matrix[j],matrix[i]
             i,j=i+1,j-1
             
-        #Step 2 - Reverse element across left diagonal    
+        #Step 2 - Reverse element across left diagonal or transpose   
         for i in range(n):
             for j in range(i,n):
                 matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
-                
-                
-        
-            
+                       
+```
+
+# Problem
+
+Rotate matrix 270* clockwise or 90 degree anticlockwise
+
+# Solution
+----------
+
+1. Transpose
+2. Swap row items column wise
+
+```python
+def rotate(matrix): 
+    #code here
+    n = len(matrix)
+    # transpose
+    for i in range(n):
+        for j in range(i+1,n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+      
+    # swap rows along columns
+    for i in range(n//2):    
+        for j in range(n):
+            matrix[i][j],matrix[n-1-i][j] = matrix[n-1-i][j], matrix[i][j]
+
+    #or
+    i,j = 0,n-1
+    while i<j:
+        matrix[i], matrix[j] = matrix[j], matrix[i]
+        i,j = i+1,j-1
+    
+    return matrix
 ```

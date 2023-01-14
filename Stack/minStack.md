@@ -62,3 +62,90 @@ func main(){
  fmt.Println(param_3,param_4)
 }
 ```
+
+O(1) get min operation
+
+```python
+def push(arr, ele):
+    # Code here
+    global minEle
+    
+    if len(arr)==0:
+        # first insert
+        minEle = ele
+        arr.append(ele)
+    else:
+        if ele >= minEle:
+            arr.append(ele)
+        else:
+            arr.append(2*minEle-ele)
+            minEle=ele
+
+# Function should pop an element from stack
+def pop(arr):
+    # Code here
+    global minEle
+    item = arr.pop()
+    if item >= minEle:
+        return item
+    
+    return 2*minEle-item
+
+# function should return 1/0 or True/False
+def isFull(n, arr):
+    # Code here
+    return len(arr)==n
+
+# function should return 1/0 or True/False
+def isEmpty(arr):
+    #Code here
+    return len(arr)==0
+
+# function should return minimum element from the stack
+def getMin(n, arr):
+    # Code here
+    global minEle
+    return minEle
+```
+
+# Get minimum element from stack
+
+```python
+class stack:
+    def __init__(self):
+        self.s=[]
+        self.minEle=None
+
+    def push(self,x):
+        #CODE HERE
+        if len(self.s)==0:
+            self.s.append(x)
+            self.minEle = x
+        elif x>=self.minEle:
+            self.s.append(x)
+        else:
+            self.s.append(2*x - self.minEle)
+            self.minEle = x
+
+    def pop(self):
+        #CODE HERE
+        if len(self.s)==0:
+            return -1
+            
+        top = self.s.pop()
+        if top >= self.minEle:
+            return top
+        else:
+            # very imp
+            # if ele < minEle in stack, top is minEle
+            top = self.minEle
+            self.minEle = 2*self.minEle-top
+            return top
+
+    def getMin(self):
+        #CODE HERE
+        if len(self.s)==0 or self.minEle is None:
+            return -1
+            
+        return self.minEle
+```

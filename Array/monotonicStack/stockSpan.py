@@ -20,9 +20,14 @@ def calculateSpan(a,n):
     i = 1
     
     while i<n:
+        #we pop elements from the stack till price at top of stack 
+        #is less than or equal to current price.
         while st and a[st[-1]] <= a[i]:
             st.pop()
-            
+
+        #if stack becomes empty, then price[i] is greater than all 
+        #elements on left of it in list so span is i+1.
+        #Else price[i] is greater than elements after value at top of stack.  
         if st:
             span[i] = i-st[-1]
         else:

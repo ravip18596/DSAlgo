@@ -1,3 +1,35 @@
+# Time O(N)
+# Space O(1)
+
+def subArraySum(self,arr, n, s): 
+   #Write your code here
+
+    sum_till_now, first_index, second_index = arr[0], 0, 0
+    if sum_till_now == s:
+        return [1, 1]
+    
+    for i in range(1, len(arr)):
+        sum_till_now += arr[i]
+        
+        
+        if sum_till_now > s:
+            while sum_till_now>s and first_index<n:
+                sum_till_now -= arr[first_index]
+                first_index += 1
+                
+        if sum_till_now == s:
+            second_index = i
+            if second_index<first_index:
+                return [-1]
+                
+            return [first_index+1, second_index+1]
+                
+    
+    return [-1]
+
+# Time: O(N)
+# Space: O(1)
+
 def subArraySum(arr, n, s): 
     #Write your code here
     # Time: O(n)

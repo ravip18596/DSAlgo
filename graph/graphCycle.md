@@ -76,3 +76,62 @@ bool isCyclic(int V, vector<int> adj[])
    return false;
 }
 ```
+
+`Given the total number of tasks N and a list of prerequisite pairs P, find if it is possible to finish all tasks.`
+
+Input: 
+N = 4, P = 3
+prerequisites = {{1,0},{2,1},{3,2}}
+Output:
+Yes
+
+Input:
+N = 2, P = 2
+prerequisites = {{1,0},{0,1}}
+Output:
+No
+
+`Solution`
+
+- Construct graph 
+- If there is cycle then not possible else possible
+
+`Python`
+
+```python
+class Solution:
+    def dfs(self, node, visited, on_path, adj):
+        if visited[node]:
+            # Node is already visited but there is no cycle.
+            return False
+            
+        # mark unvisited node visited
+        visited[node] = True
+        on_path[node] = True
+        # Traverse its neighbours
+        for j in adj[node]:
+            # Either neigh already met in path or found cycle from dfs on neigh
+            # then propagate true
+            if on_path[j] or self.dfs(j, visited, on_path, adj):
+                return True
+        
+        on_path[node] = False   
+        return False
+        
+    def isPossible(self,N,prerequisites):
+        #code here
+        adj = [[] for _ in range(N)]
+        
+        for u,v in prerequisites:
+            adj[v].append(u)
+        
+        visited = [False]*N
+        on_path = [False]*N # record the visited nodes in the current DFS 
+        for i in range(N):
+            if not visited[i]:
+                if self.dfs(i, visited, on_path, adj):
+                    # cycle is there so not possible
+                    return False
+        
+        return True
+```

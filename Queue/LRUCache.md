@@ -129,3 +129,33 @@ class LRUCache:
                 self.deleteNode(self.tail.pre)
                 self.addToHead(node)
 ```
+
+Approach 3
+
+- Using Python OrderedDict
+```python
+from collections import OrderedDict
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cache = OrderedDict()
+        self.capacity = capacity
+    
+    def get(self, key: int) -> int:
+        if key not in self.cache:
+            return -1
+        else:
+            # pop and insert the key,value in the end of dict
+            self.cache[key] = self.cache.pop(key)
+            return self.cache[key]
+    
+    def put(self, key, value):
+        if key not in self.cache:
+            if len(self.cache) == self.capacity:
+                # because beginning of orderedDict contains LRU item
+                self.cache.popitem(last=False)
+        else:
+            # key present in cache then delete the key
+            self.cache.pop(key)
+        # insert fresh at the end
+        self.cache[key] = value
+```

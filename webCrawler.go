@@ -99,6 +99,6 @@ var fetcher = fakeFetcher{
 	},
 }
 
-func main() {
-	Crawl("https://golang.org/", 4, fetcher)
-}
+// func main() {
+// 	Crawl("https://golang.org/", 4, fetcher)
+// }

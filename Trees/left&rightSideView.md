@@ -39,3 +39,34 @@ public:
     }
 };
 ```
+
+Left Side View
+--------------
+
+```python
+class Node:
+    def _init_(self,val):
+        self.data = val
+        self.left = None
+        self.right = None
+        
+def util(root , level, arr):
+    if root is None:
+        return
+    
+    if len(arr) == level:
+        arr.append(root.data)
+    
+    util(root.left, level+1, arr)
+    util(root.right, level+1, arr)
+    
+#Function to return a list containing elements of left view of the binary tree.
+def LeftView(root):
+    leftNodes = []
+    if root is None:
+        return leftNodes
+    
+    util(root, 0, leftNodes)
+    return leftNodes
+
+```

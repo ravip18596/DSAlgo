@@ -31,3 +31,22 @@ def paranthesis_checker(x: str):
     
     return balanced
 ```
+
+### Solution 2
+
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        st = []
+        m = {'(':')', '{': '}', '[':']'}
+        for c in s:
+            if c in ['(', '{', '[']:
+                st.append(m[c])
+            elif c in [')', '}', ']']:
+                if len(st)==0 or st[-1] != c:
+                    return False
+                
+                st.pop()
+
+        return len(st) == 0
+```

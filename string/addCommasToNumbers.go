@@ -1,3 +1,9 @@
+/*
+This question was asked in Andela interview.
+I screwed up when I was not solve the problem of adding commas after 3 digit
+
+https://www.geeksforgeeks.org/python-add-comma-between-numbers/
+*/
 package main
 
 import (

@@ -36,3 +36,22 @@ func isPalindrome(s string) bool {
     return true
 }
 ```
+
+- Python
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        ss = ""
+        for c in s:
+            if c in 'abcdefghijklmnopqrstuvwxyz0123456789':
+                ss += c
+        
+        n = len(ss)
+        for i in range(n//2):
+            if ss[i] != ss[n-1-i]:
+                return False
+
+        return True
+```

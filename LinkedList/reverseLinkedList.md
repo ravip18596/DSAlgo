@@ -24,3 +24,28 @@ class Solution:
             
         return prev
 ```
+- Time Complexity - O(N)
+- Space Complexity - O(1)
+
+## Python
+### Iterative
+
+```python
+def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev, curr = None, head
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+
+        return prev
+```
+### Recursive
+- Time Complexity - O(N)
+- Space Complexity - O(1)
+
+```python
+
+```
+

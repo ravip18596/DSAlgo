@@ -3,6 +3,8 @@ Language Basics
 
 ## [Python](Python)
 
+- [OOPS.md](Python/OOPS/oops.md) | [OOPS.py](Python/OOPS/oops.py)
+
 
 DSAlgo
 -------

@@ -1,3 +1,6 @@
+from curses.textpad import rectangle
+
+
 class Car:
     def __init__(self, make, model, year):
         self.make = make
@@ -62,6 +65,54 @@ class Cat(Animal):
         print('Meow!')
 
 
+# Abstraction
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def area(self):
+        return self.length * self.breadth
+
+
+# Aggregation
+class Book:
+    def __init__(self, title):
+        self.title = title
+
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+# Composition
+class Room:
+    def __init__(self, name):
+        self.name = name
+
+class House:
+    def __init__(self):
+        self.rooms = [Room("Living Room"), Room("Bedroom")]
+
+
 if __name__ == '__main__':
     car = Car("Toyota", "Camry", 2014)
     car.start()
@@ -84,3 +135,20 @@ if __name__ == '__main__':
     cat = Cat()
     dog.make_sound()
     cat.make_sound()
+    print()
+    circle = Circle(2)
+    rectangle = Rectangle(2, 3)
+    print(f'Area of circle is {circle.area()}')
+    print(f'Area of rectangle is {rectangle.area()}')
+    print()
+    library = Library()
+    library.add_book(Book("Book1"))
+    library.add_book(Book("Book2"))
+    for book in library.books:
+        print(book.title)
+
+    print()
+    house = House()
+    for room in house.rooms:
+        print(room.name)
+

@@ -126,3 +126,83 @@ if __name__ == '__main__':
     dog.make_sound()
     cat.make_sound()
 ```
+
+Abstraction
+-----------
+
+```python
+# Abstraction
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def area(self):
+        return self.length * self.breadth
+
+if __name__ == '__main__':
+    circle = Circle(2)
+    rectangle = Rectangle(2, 3)
+    print(f'Area of circle is {circle.area()}')
+    print(f'Area of rectangle is {rectangle.area()}')
+```
+
+Aggregation
+-----------
+
+Aggregation in python represents a "has-a" relationship where one class contains references to objects of another class
+```python
+class Book:
+    def __init__(self, title):
+        self.title = title
+
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+if __name__ == '__main__':
+    library = Library()
+    library.add_book(Book("Book1"))
+    library.add_book(Book("Book2"))
+    for book in library.books:
+        print(book.title)
+```
+
+Composition
+-----------
+
+Composition in python also represents a "has-a" relationship, but the lifecycle of contained object is tied to the container object
+
+```python
+class Room:
+    def __init__(self, name):
+        self.name = name
+
+class House:
+    def __init__(self):
+        self.rooms = [Room("Living Room"), Room("Bedroom")]
+
+if __name__ == '__main__':
+    house = House()
+    for room in house.rooms:
+        print(room.name)
+```

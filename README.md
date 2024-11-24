@@ -4,7 +4,8 @@ Language Basics
 ## [Python](Python)
 
 - [OOPS.md](Python/OOPS/oops.md) | [OOPS.py](Python/OOPS/oops.py)
-- [Problems.md](Python/OOPS/problems.md) | [Problems.py](Python/OOPS/problems.py)
+- [OOPS Problems.md](Python/OOPS/problems.md) | [OOPS Problems.py](Python/OOPS/problems.py)
+- [Functions.md](Python/Functions/functions.md) | [Functions.py](Python/Functions/functions.py)
 
 
 DSAlgo

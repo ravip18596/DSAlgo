@@ -123,5 +123,33 @@ if __name__ == "__main__":
     print(arr)
 
 ```
+## Counting Sort
+
+- Time Complexity: O(n+k)
+- Space Complexity: O(n+k)
+- k is the range of the input
+- Logic is to count the frequency of each element and then sort the elements based on their frequency
+
+```python
+def counting_sort(arr):
+    max_element = max(arr)
+    count_array = [0] * (max_element + 1)
+    for num in arr:
+        count_array[num] += 1
+
+    output_array = []
+    for i in range(len(count_array)):
+        while count_array[i] > 0:
+            output_array.append(i)
+            count_array[i] -= 1
+
+    return output_array
+
+
+if __name__ == "__main__":
+    arr = [1, 4, 1, 2, 7, 5, 2]
+    sorted_arr = counting_sort(arr)
+    print(sorted_arr)
+```
 
 ## Heap Sort

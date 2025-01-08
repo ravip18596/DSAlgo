@@ -7,6 +7,10 @@ Language Basics
 - [OOPS Problems.md](Python/OOPS/problems.md) | [OOPS Problems.py](Python/OOPS/problems.py)
 - [Functions.md](Python/Functions/functions.md) | [Functions.py](Python/Functions/functions.py)
 
+# Heycoach Algos
+
+- [Sorting](Heycoach/Sorting/sorting.md)
+
 
 DSAlgo
 -------

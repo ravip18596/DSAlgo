@@ -56,6 +56,21 @@ def selection_sort(arr):
         arr[i], arr[min_index] = arr[min_index], arr[i]
 
 
+def counting_sort(arr):
+    max_element = max(arr)
+    count_array = [0] * (max_element + 1)
+    for num in arr:
+        count_array[num] += 1
+
+    output_array = []
+    for i in range(len(count_array)):
+        while count_array[i] > 0:
+            output_array.append(i)
+            count_array[i] -= 1
+
+    return output_array
+
+
 if __name__ == "__main__":
     arr = [10, 7, 8, 9, 1, 5]
     quick_sort(arr, 0, len(arr) - 1)
@@ -71,6 +86,10 @@ if __name__ == "__main__":
 
     arr = [10, 7, 8, 9, 1, 5]
     selection_sort(arr)
+    print(arr)
+
+    arr = [10, 7, 8, 9, 1, 5]
+    arr = counting_sort(arr)
     print(arr)
 
     arr = [5,4,3,2,1]

@@ -10,6 +10,7 @@ Language Basics
 # Heycoach Algos
 
 - [Sorting](Heycoach/Sorting/sorting.md)
+- [Searching](Heycoach/Searching/searching.md)
 
 
 DSAlgo

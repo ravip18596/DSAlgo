@@ -37,6 +37,36 @@ def lower_bound(arr, target):
     return left
 
 
+def first_occurrence(arr, target):
+    left, right = 1, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid-1]!=target and arr[mid] == target:
+            return mid
+
+        if arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
+
+def last_occurrence(arr, target):
+    left, right = 0, len(arr) - 2
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid+1]!=target and arr[mid] == target:
+            return mid
+
+        if arr[mid] <= target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
+
 def findMin(nums: List[int]) -> int:
     if nums[0] <= nums[-1]:
         return nums[0]
@@ -74,6 +104,34 @@ def search(nums: List[int], target: int) -> int:
         return -1
 
 
+def square_root(n):
+    #Write your code here
+    left, right = 0, n
+    while left <= right:
+        mid = (left+right)//2
+        if mid*mid == n:
+            return mid
+        if mid*mid > n:
+            right = mid-1
+        else:
+            left = mid+1
+    
+    return left-1
+
+
+def square_root2(n):
+    left, right = 0, n
+    while left <= right:
+        mid = (left+right)//2
+        if mid*mid <= n and (mid+1)*(mid+1) > n:
+            return mid
+
+        if mid*mid <= n:
+            left = mid+1
+        else:
+            right = mid-1
+
+
 if __name__ == "__main__":
     nums = [1,2,1,3,5,6,4]
     index = findPeakElement(nums)
@@ -92,3 +150,15 @@ if __name__ == "__main__":
     target = 0
     index = search(nums, target)
     print(f"Target {target} found at index {index}")
+
+    n = 15
+    print(f"Square root of {n} is {square_root(n)}")
+    print(f"Square root of {n} is {square_root2(n)}")
+
+    arr = [1,2,3,4,5,5,5,5,7,8,9]
+    target = 5
+    index = first_occurrence(arr, target)
+    print(f"First occurrence of {target} is at index {index} with value {arr[index]}")
+
+    index = last_occurrence(arr, target)
+    print(f"Last occurrence of {target} is at index {index} with value {arr[index]}")

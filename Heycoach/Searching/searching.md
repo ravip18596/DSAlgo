@@ -119,6 +119,24 @@ def findPeakElement(nums: List[int]) -> int:
             r = mid-1
 ```
 
+### Square root
+
+```python
+    def square_root(self, n):
+        #Write your code here
+        left, right = 0, n
+        while left <= right:
+        mid = (left+right)//2
+        if mid*mid == n:
+          return mid
+        if mid*mid > n:
+          right = mid-1
+        else:
+          left = mid+1
+        
+        return left-1
+```
+
 ## Ternary Search
 
 

@@ -73,6 +73,22 @@ def upper_bound(arr, target):
         else:
             right = mid - 1
     return left
+
+
+def last_occurrence(arr, target):
+    left, right = 0, len(arr) - 2
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid+1]!=target and arr[mid] == target:
+            return mid
+
+        if arr[mid] <= target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
 ```
 
 ### Lower Bound
@@ -89,6 +105,22 @@ def lower_bound(arr, target):
         else:
             right = mid - 1
     return left
+
+
+def first_occurrence(arr, target):
+    left, right = 1, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid-1]!=target and arr[mid] == target:
+            return mid
+
+        if arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+            
 ```
 
 ### Find Peak Element
@@ -122,19 +154,33 @@ def findPeakElement(nums: List[int]) -> int:
 ### Square root
 
 ```python
-    def square_root(self, n):
-        #Write your code here
-        left, right = 0, n
-        while left <= right:
+def square_root(n):
+    #Write your code here
+    left, right = 0, n
+    while left <= right:
         mid = (left+right)//2
         if mid*mid == n:
-          return mid
+            return mid
         if mid*mid > n:
-          right = mid-1
+            right = mid-1
         else:
-          left = mid+1
-        
-        return left-1
+            left = mid+1
+    
+    return left-1
+
+
+def square_root2(n):
+    left, right = 0, n
+    while left <= right:
+        mid = (left+right)//2
+        if mid*mid <= n and (mid+1)*(mid+1) > n:
+            return mid
+
+        if mid*mid <= n:
+            left = mid+1
+        else:
+            right = mid-1
+            
 ```
 
 ### Find min in rotated sorted array

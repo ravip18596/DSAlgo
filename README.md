@@ -11,6 +11,8 @@ Language Basics
 
 - [Sorting](Heycoach/Sorting/sorting.md)
 - [Searching](Heycoach/Searching/searching.md)
+- [TwoPointer](Heycoach/Array/TwoPointer/twoPointer.md)
+- [Matrix](Heycoach/Array/Matrix/matrix.md)
 
 
 DSAlgo

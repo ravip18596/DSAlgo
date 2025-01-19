@@ -13,6 +13,8 @@ Language Basics
 - [Searching](Heycoach/Searching/searching.md)
 - [TwoPointer](Heycoach/Array/TwoPointer/twoPointer.md)
 - [Matrix](Heycoach/Array/Matrix/matrix.md)
+- [String](Heycoach/String/string.md)
+- [Array](Heycoach/Array/array.md)
 
 
 DSAlgo

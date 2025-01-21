@@ -15,6 +15,7 @@ Language Basics
 - [Matrix](Heycoach/Array/Matrix/matrix.md)
 - [String](Heycoach/String/string.md)
 - [Array](Heycoach/Array/array.md)
+- [Hashing](Heycoach/Hashing/hashing.md)
 
 
 DSAlgo

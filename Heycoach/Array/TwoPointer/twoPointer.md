@@ -64,4 +64,28 @@ def three_sum(nums):
 # print(three_sum(nums))  # Output: [[-1, -1, 2], [-1, 0, 1]]
 ```
 
+## Container With Most Water
+
+>Problem Statement - [https://leetcode.com/problems/container-with-most-water/description/](https://leetcode.com/problems/container-with-most-water/description/)
+
+- Python
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        res = 0
+        n = len(height)
+        l,r = 0, n-1
+
+        while l<r:
+            area = (r-l) * min(height[l], height[r])
+            res = max(res, area)
+
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+        
+        return res
+```
+
 

@@ -231,7 +231,41 @@ def search(nums: List[int], target: int) -> int:
         return -1
 ```
 
+### Allocate Minimum Pages
+- Pattern: minmax binary search
+- [https://www.geeksforgeeks.org/allocate-minimum-number-pages/](https://www.geeksforgeeks.org/allocate-minimum-number-pages/)
+- Time Complexity: $$O(n * sum(arr) - max(arr)) $$ 
 
-## Ternary Search
+```python
+ def findPages(self, arr, k):
+        #code here
+        def isValid(val):
+            cnt = 1
+            current_sum = 0
+            i = 0
+            for i in range(len(arr)):
+                if current_sum + arr[i] > val:
+                    cnt += 1
+                    current_sum = arr[i]
+                else:
+                    current_sum += arr[i]
+                    
+            return cnt <= k
+            
+        low = max(arr)
+        high = sum(arr)
+        
+        res = -1
+        while low <= high:
+            mid = (low + high)//2
+            if isValid(mid):
+                res = mid
+                high = mid-1
+            else:
+                low = mid+1
+        
+        return res
+```
+
 
 

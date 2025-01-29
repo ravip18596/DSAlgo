@@ -15,6 +15,7 @@ Language Basics
 - [SlidingWindow](Heycoach/Array/SlidingWindow/slidingWindow.md)
 - [Matrix](Heycoach/Array/Matrix/matrix.md)
 - [String](Heycoach/String/string.md)
+- [String Pattern Matching](Heycoach/String/patternMatching.md)
 - [Array](Heycoach/Array/array.md)
 - [Hashing](Heycoach/Hashing/hashing.md)
 

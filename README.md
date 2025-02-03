@@ -18,6 +18,7 @@ Language Basics
 - [String Pattern Matching](Heycoach/String/patternMatching.md)
 - [Array](Heycoach/Array/array.md)
 - [Hashing](Heycoach/Hashing/hashing.md)
+- [Stack](Heycoach/Stack/stack.md)
 
 
 DSAlgo

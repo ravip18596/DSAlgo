@@ -20,6 +20,7 @@ Language Basics
 - [Hashing](Heycoach/Hashing/hashing.md)
 - [Stack](Heycoach/Stack/stack.md)
 - [Recursion](Heycoach/Recursion/recursion.md)
+- [Backtracking](Heycoach/Backtracking/backtracking.md)
 
 
 DSAlgo

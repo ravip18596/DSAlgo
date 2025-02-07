@@ -6,7 +6,7 @@
 - Source is 0,0
 - Dest is m-1, n-1
 
-$$Time-Complexity 2^n $$
+$$ Time-Complexity=2^n $$
 
 ```python
 def helper(i, j, grid, partial_ans):

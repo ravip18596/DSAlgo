@@ -37,7 +37,7 @@ helper(0, 0, grid, [])
 
 ## Subsets
 
-(https://leetcode.com/problems/subsets/description/)[https://leetcode.com/problems/subsets/description/]
+[https://leetcode.com/problems/subsets/description/](https://leetcode.com/problems/subsets/description/)
 
 $$ Time-Complexity: O(2^N) $$
 
@@ -64,7 +64,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
 
 ## Subsets II
 
-(https://leetcode.com/problems/subsets-ii/description/)[https://leetcode.com/problems/subsets-ii/description/]
+[https://leetcode.com/problems/subsets-ii/description/](https://leetcode.com/problems/subsets-ii/description/)
 
 $$ Time-Complexity: O(2^N) $$
 

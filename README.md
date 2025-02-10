@@ -21,6 +21,7 @@ Language Basics
 - [Stack](Heycoach/Stack/stack.md)
 - [Recursion](Heycoach/Recursion/recursion.md)
 - [Backtracking](Heycoach/Backtracking/backtracking.md)
+- [DP](Heycoach/DP/dp.md)
 
 
 DSAlgo

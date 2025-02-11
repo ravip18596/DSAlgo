@@ -94,3 +94,36 @@ def lcs2(s1, s2):
     return helper(m, n)
 ```
 
+## 0/1 Knapsack Problem
+
+Pseudo Polynomial Time-Complexity: $O(N*W)$
+
+> Tabulation + Bottom-Up DP
+```python
+def knapsack(W, wt, val, n):
+    dp = [[0] * (W+1) for _ in range(n+1)]
+    for i in range(1, n+1):
+        for j in range(1, W+1):
+            if wt[i-1] <= j:
+                dp[i][j] = max(val[i-1] + dp[i-1][j-wt[i-1]], dp[i-1][j])
+            else:
+                dp[i][j] = dp[i-1][j]
+    return dp[n][W]
+```
+
+> Memoization + Top-Down DP
+```python
+def knapsack(W, wt, val, n):
+    dp = [[-1] * (W+1) for _ in range(n+1)]
+    def helper(i, j):
+        if i == 0 or j == 0:
+            return 0
+        if dp[i][j] != -1:
+            return dp[i][j]
+        if wt[i-1] <= j:
+            dp[i][j] = max(val[i-1] + helper(i-1, j-wt[i-1]), helper(i-1, j))
+        else:
+            dp[i][j] = helper(i-1, j)
+        return dp[i][j]
+    return helper(n, W)
+```

@@ -65,3 +65,18 @@ def binary_search(arr: List[int], l: int, r: int, target: int) -> int:
     else:
         return binary_search(arr, l, mid-1, target)
 ```
+
+## Is subsequence
+
+```python    
+def is_subsequence(s: str, t: str) -> bool:
+    if len(s) == 0:
+        return True
+    if len(t) == 0:
+        return False
+
+    if s[0] == t[0]:
+        return is_subsequence(s[1:], t[1:])
+    else:
+        return is_subsequence(s, t[1:])
+```

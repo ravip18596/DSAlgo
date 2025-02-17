@@ -220,3 +220,37 @@ def matrixMultiplication(self, arr):
     
     return helper(arr, 0, n-2, dp)
 ```
+
+## Best Time to Buy and Sell Stock
+
+$$ Time-Complexity: O(N) $$
+$$ Space-Complexity: O(N) $$
+
+> Bottom-Up + Tabulation
+
+```python
+def maxProfit(prices):
+    n = len(prices)
+    dp = [[0] * n for _ in range(2)]
+    dp[0][0] = -prices[0]
+    for i in range(1, n):
+        dp[0][i] = max(dp[0][i-1], dp[1][i-1] - prices[i])
+        dp[1][i] = max(dp[1][i-1], dp[0][i-1] + prices[i])
+    return dp[1][n-1]
+```
+
+## Coin Change
+
+$$ Time-Complexity: O(N*Amount) $$
+
+> Bottom-Up + Tabulation
+
+```python
+def coinChange(coins, amount):
+    dp = [0] * (amount+1)
+    dp[0] = 1
+    for coin in coins:
+        for j in range(coin, amount+1):
+            dp[j] += dp[j-coin]
+    return dp[amount]    
+```

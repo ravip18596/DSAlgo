@@ -188,3 +188,35 @@ def lcs(s1, s2):
 def lps(s1):
     return lcs(s1, s1[::-1])
 ```
+
+## Matrix Chain Multiplications
+
+[https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1](https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1)
+
+> Top-Down + Memoization
+
+```python
+def matrixMultiplication(self, arr):
+    # code here
+    n = len(arr)
+    dp = [[-1]*(n-1) for _ in range(n-1)]
+    
+    def helper(arr, i, j, dp):
+        if i==j:
+            return 0
+            
+        if dp[i][j] != -1:
+            return dp[i][j]
+            
+        mini = int(1e9)+7
+        for k in range(i, j):
+            left_partition = helper(arr, i, k, dp)
+            right_partition = helper(arr, k+1, j, dp)
+            val = left_partition + right_partition + (arr[i]*arr[k+1]*arr[j+1])
+            mini = min(mini, val)
+            
+        dp[i][j] = mini
+        return mini
+    
+    return helper(arr, 0, n-2, dp)
+```

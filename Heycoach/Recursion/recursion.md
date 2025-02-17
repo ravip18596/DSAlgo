@@ -80,3 +80,23 @@ def is_subsequence(s: str, t: str) -> bool:
     else:
         return is_subsequence(s, t[1:])
 ```
+
+## Generate Paranthesis
+
+$$ Time-Complexity: O(exponential) $$
+
+> (x)y => x and y are well formed paranthesis
+
+```python
+def generate_paranthesis(n):
+    if n == 0:
+        return [""]
+
+    result = []
+    for i in range(n):
+        for left in generate_paranthesis(i):
+            for right in generate_paranthesis(n-i-1):
+                result.append("(" + left + ")" + right)
+
+    return result
+```

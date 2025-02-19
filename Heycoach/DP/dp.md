@@ -252,5 +252,23 @@ def coinChange(coins, amount):
     for coin in coins:
         for j in range(coin, amount+1):
             dp[j] += dp[j-coin]
-    return dp[amount]    
+    return dp[amount]
+
+def coin_change(self, coins, amt):
+    #Write your code here
+    n = len(coins)
+    dp = [[0]*(amt+1) for _ in range(n+1)]
+     
+    #   memo[i][j] = Number of ways you can make a coin change for j amount with coins from coins[i:end]
+    #   Case 1 : You choose to have ith coin in your coin change, then total ways you can do it is memo[i][j-coins[i]]
+    #   Case 2 : You decide not to choose the ith coin in your coin change, the total ways you can do it is memo[i+1][j]
+
+    dp[n][0] = 1
+    for j in range(amt+1):
+      for i in range(n-1, -1, -1):
+        dp[i][j] = dp[i+1][j]
+        if j>=coins[i]:
+          dp[i][j] += dp[i][j-coins[i]]
+
+    return dp[0][amt]
 ```

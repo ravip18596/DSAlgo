@@ -98,3 +98,77 @@ def merge(head1, head2):
     return head.next
 ```
 
+## Linked List Cycle II
+
+Return the node at the beginning of cycle
+
+```python
+class Node:
+    def __init__(self, val, nexT=None):
+        self.val = val
+        self.next = nexT
+
+    
+def detectCycle(head):
+    slow = head
+    fast = head
+    isCycle = False
+
+    while fast is not None and fast.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            isCycle = True
+            break
+
+    if not isCycle:
+        return None
+
+    slow2 = head
+    while slow2 != slow:
+        slow = slow.next
+        slow2 = slow2.next
+
+    return slow
+```
+
+## LRU Cache
+
+1. using double linked list
+2. using hash table
+
+```python
+from collections import OrderedDict
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache = OrderedDict()
+        self.capacity = capacity       
+
+    def get(self, key: int) -> int:
+        # Case 1: if key is not present in cache, return -1
+        if key not in self.cache:
+            return -1
+        else:
+        # Case 2: If present, then return the value and move it to the end
+            self.cache[key] = self.cache.pop(key)
+            return self.cache[key]
+        
+
+    def put(self, key: int, value: int) -> None:
+        
+        if key not in self.cache:
+        # Case 1: if cache is reached capacity then remove least recently used key
+            if len(self.cache) == self.capacity:
+                self.cache.popitem(0)
+        else:
+            self.cache.pop(key)
+        self.cache[key] = value
+
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
+```

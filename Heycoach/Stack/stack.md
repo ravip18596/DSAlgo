@@ -61,7 +61,7 @@ def nextSmallerElement(arr):
     stack = []
     nse = [-1]*n
     for i in range(n):
-        while len(stack) > 0 and arr[stack[-1]] > arr[i]:
+        while len(stack) > 0 and arr[stack[-1]] >= arr[i]:
             j = stack.pop()
             nse[j] = arr[i]
 

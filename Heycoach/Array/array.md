@@ -33,8 +33,9 @@ def kadane_algorithm_with_indices(arr):
 
 >Problem Statement [https://leetcode.com/problems/trapping-rain-water/description/](https://leetcode.com/problems/trapping-rain-water/description/)
 
-> After every position, I will have a possible height of water
-$$ actual height of water = min(lmax, rmax) - height of the wall $$
+1. After every position, I will have a possible height of water
+
+$$actual height of water = min(lmax, rmax) - height of the wall$$
 
 - Python
 ```python

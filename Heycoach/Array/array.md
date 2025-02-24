@@ -35,7 +35,7 @@ def kadane_algorithm_with_indices(arr):
 
 1. After every position, I will have a possible height of water
 
-$$actual_height_of_water = min(lmax, rmax) - height_of_the_wall$$
+$$actualHeightOfWater = min(lmax, rmax) - HeightOfTheWall$$
 
 - Python
 ```python

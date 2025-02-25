@@ -23,6 +23,7 @@ Language Basics
 - [Backtracking](Heycoach/Backtracking/backtracking.md)
 - [DP](Heycoach/DP/dp.md)
 - [LinkedList](Heycoach/LinkedList/linked_list.md)
+- [Tree](Heycoach/Tree/tree.md)
 
 
 DSAlgo

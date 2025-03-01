@@ -112,3 +112,22 @@ def postorder(root):
     postorder(root.right)
     print(root.data)
 ```
+
+## Same Tree
+
+> Two trees are same if they have same structure and same values at each node.
+
+$$ Time-Complexity: O(N) $$
+
+```python
+def isSameTree(p, q):
+    if p is None and q is None:
+        return True
+    if p is None or q is None:
+        return False
+
+    left = isSameTree(p.left, q.left)
+    right = isSameTree(p.right, q.right)
+    
+    return p.val == q.val and left and right
+```

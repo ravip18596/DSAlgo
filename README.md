@@ -25,6 +25,7 @@ Language Basics
 - [LinkedList](Heycoach/LinkedList/linked_list.md)
 - [Tree](Heycoach/Tree/tree.md)
 - [Binary Search Tree](Heycoach/Tree/bst.md)
+- [Trie](Heycoach/Trie/trie.md)
 
 
 DSAlgo

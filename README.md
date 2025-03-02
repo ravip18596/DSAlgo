@@ -19,6 +19,7 @@ Language Basics
 - [Array](Heycoach/Array/array.md)
 - [Hashing](Heycoach/Hashing/hashing.md)
 - [Stack](Heycoach/Stack/stack.md)
+- [Queue](Heycoach/Queue/queue.md)
 - [Recursion](Heycoach/Recursion/recursion.md)
 - [Backtracking](Heycoach/Backtracking/backtracking.md)
 - [DP](Heycoach/DP/dp.md)

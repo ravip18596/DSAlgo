@@ -27,6 +27,7 @@ Language Basics
 - [Tree](Heycoach/Tree/tree.md)
 - [Binary Search Tree](Heycoach/Tree/bst.md)
 - [Trie](Heycoach/Trie/trie.md)
+- [Heap](Heycoach/Heap/heap.md)
 
 
 DSAlgo

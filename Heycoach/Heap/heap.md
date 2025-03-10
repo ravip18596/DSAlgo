@@ -143,3 +143,25 @@ def topKFrequent(arr, k):
         res.append(heapq.heappop(pq)[1])
     return res[::-1]
 ```
+
+## Ugly Number II
+[https://leetcode.com/problems/ugly-number-ii/description/](https://leetcode.com/problems/ugly-number-ii/description/)
+
+> 1 is a ugly number. It is a special case.
+
+```python
+def nthUglyNumber(n):
+    count = 0
+    s = set() # to track which elements are already in your heap
+    s.add(1)
+    while count < n-1:
+        count += 1
+
+    
+```
+
+
+## Median of a data stream
+
+[https://leetcode.com/problems/find-median-from-data-stream/description/](https://leetcode.com/problems/find-median-from-data-stream/description/)
+

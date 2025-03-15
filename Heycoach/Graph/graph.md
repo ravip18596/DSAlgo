@@ -31,7 +31,29 @@ if __name__ == '__main__':
 ## BFS
 
 ```python
+def bfs(node, graph, visited):
+    queue = [node]
+    visited[node] = True
+    while queue:
+        node = queue.pop(0)
+        print(node)
+        for neighbour in graph[node]:
+            if not visited[neighbour]:
+                visited[neighbour] = True
+                queue.append(neighbour)
 
+if __name__ == '__main__':
+    graph = {
+        0: [1, 2],
+        1: [2],
+        2: [0, 3],
+        3: [3]
+    }
+    visited = [False] * len(graph)
+    for i in range(len(graph)):
+        if not visited[i]:
+            bfs(i, graph, visited)    
+    print(visited)
 ```
 
 ## Bipartite Graph

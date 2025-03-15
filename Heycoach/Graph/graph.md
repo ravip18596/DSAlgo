@@ -74,13 +74,13 @@ def isBipartiteGraph(graph):
 
 Given a graph, find whether the graph contains a cycle or not.
 
-### Directed Graph
+### UnDirected Graph
 
 - Using DFS
 - if we are able to get a visited node other than prev node from where I came from, as an adjacent node at any point of time during DFS, then there exists a cycle.
 
 ```python
-def isDirectedGraphCyclic(node, graph, visited, prev):
+def isUnDirectedGraphCyclic(node, graph, visited, prev):
     visited[node] = True    
     for neighbour in graph[node]:
         if not visited[neighbour]:
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     res = False
     for i in range(len(graph)):
         if not visited[i]:
-            res = isDirectedGraphCyclic(i, graph, visited, prev)
+            res = isUnDirectedGraphCyclic(i, graph, visited, prev)
             if res:
                 print("Directe Graph is Cyclic")
                 break
@@ -111,3 +111,58 @@ if __name__ == '__main__':
 
 
 ### Undirected Graph
+
+- Using DFS
+- Visited
+    - 0: unvisited
+    - 1: visited node in the current recursion call
+    - 2: visited node in the previous recursion call
+
+```python
+def isDirectedGraphCyclic(node, graph, visited):
+    visited[node] = 1    
+    for neighbour in graph[node]:
+        if not visited[neighbour]:
+            return isDirectedGraphCyclic(neighbour, graph, visited)
+        else:
+            if visited[neighbour] == 1:
+                print("Graph is Cyclic")
+                return
+    
+    visited[node] = 2
+    
+if __name__ == '__main__':
+    graph = {
+        0: [1, 2],
+        1: [2],
+        2: [0, 3],
+        3: [3]
+    }
+    visited = [0] * len(graph)
+    res = False
+    isDirectedGraphCyclic(0, graph, visited)
+```
+
+## Topological Sort
+
+- Topological Sort is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge u->v, vertex u comes before v in the ordering.
+- Topological Sort is possible only if the given graph is Acyclic.
+- Topological Sort is not possible if the given graph is Cyclic.
+
+```python
+def dfs(node,graph,visited,stack):
+    visited[node] = True
+    for neighbour in graph[node]:    
+        if not visited[neighbour]:
+            dfs(neighbour,graph,visited,stack)
+    stack.append(node)
+
+
+def topologicalSort(graph):
+    visited = [False] * len(graph)
+    stack = []
+    for i in range(len(graph)):
+        if not visited[i]:
+            dfs(i,graph,visited,stack)
+    return stack
+```

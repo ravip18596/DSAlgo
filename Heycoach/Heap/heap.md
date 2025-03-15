@@ -150,14 +150,29 @@ def topKFrequent(arr, k):
 > 1 is a ugly number. It is a special case.
 
 ```python
-def nthUglyNumber(n):
-    count = 0
-    s = set() # to track which elements are already in your heap
-    s.add(1)
-    while count < n-1:
-        count += 1
+import heapq
 
-    
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
+        data = [1]
+        heapq.heapify(data)
+        s = set() # to track which elements are already in your heap
+        s.add(1)
+        count = 0
+        while count < n-1:
+            x = heapq.heappop(data)
+            if x*2 not in s:
+                s.add(x*2)
+                heapq.heappush(data, x*2)
+            if x*3 not in s:
+                s.add(x*3)
+                heapq.heappush(data, x*3)
+            if x*5 not in s:
+                s.add(x*5)
+                heapq.heappush(data, x*5)
+            count += 1
+
+        return heapq.heappop(data)    
 ```
 
 

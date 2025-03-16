@@ -180,3 +180,42 @@ class Solution:
 
 [https://leetcode.com/problems/find-median-from-data-stream/description/](https://leetcode.com/problems/find-median-from-data-stream/description/)
 
+$$ Time-Complexity:addNum:O(logn)$$
+$$ Time-Complexity:findMedian:O(1)$$
+$$ Space-Complexity:O(n)$$
+
+```python
+import heapq
+
+class MedianFinder:
+    def __init__(self):
+        self.max_heap = []
+        self.min_heap = []
+        self.median = 0.
+        
+    def addNum(self, num: int) -> None:
+        if len(self.max_heap) == 0:
+            heapq.heappush(self.max_heap, -1*num)
+        elif num <= self.median:
+            heapq.heappush(self.max_heap, -1*num)
+            if len(self.max_heap) - len(self.min_heap) > 1:
+                heapq.heappush(self.min_heap, -1*heapq.heappop(self.max_heap))
+        elif num > self.median:
+            heapq.heappush(self.min_heap, num)
+            if len(self.min_heap) - len(self.max_heap) > 0:
+                heapq.heappush(self.max_heap, -1*heapq.heappop(self.min_heap))
+        
+        if (len(self.max_heap) + len(self.min_heap)) % 2 == 1:
+            self.median = -1*self.max_heap[0]
+        else:
+            max1 = -1*self.max_heap[0]
+            min1 = self.min_heap[0]
+            self.median = (max1 + min1)/2.0
+        #print(self.max_heap, self.min_heap, self.median)
+           
+    def findMedian(self) -> float:
+        return self.median
+```
+
+
+

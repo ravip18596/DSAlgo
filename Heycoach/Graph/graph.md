@@ -188,3 +188,29 @@ def topologicalSort(graph):
             dfs(i,graph,visited,stack)
     return stack
 ```
+
+## Minimum Spanning Tree (MST)
+
+- Minimum Spanning Tree is a subset of edges of a connected, edge-weighted graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.
+
+- Using Prim's Algorithm
+
+```python
+def minimumSpanningTree(graph):
+    visited = [False] * len(graph)
+    visited[0] = True
+    mst = []
+    for i in range(len(graph)):
+        minWeight = float('inf')
+        for j in range(len(graph)):
+            if visited[j]:
+                for neighbour in graph[j]:
+                    if not visited[neighbour[0]] and neighbour[1] < minWeight:
+                        minWeight = neighbour[1]
+                        u = j
+                        v = neighbour[0]
+        visited[v] = True
+        mst.append((u,v))
+    return mst
+```
+

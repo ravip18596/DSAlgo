@@ -197,20 +197,33 @@ def topologicalSort(graph):
 
 ```python
 def minimumSpanningTree(graph):
-    visited = [False] * len(graph)
+    num_vertices = len(graph)
+    if num_vertices == 0:
+        return []
+
+    visited = [False] * num_vertices
     visited[0] = True
     mst = []
-    for i in range(len(graph)):
-        minWeight = float('inf')
-        for j in range(len(graph)):
-            if visited[j]:
-                for neighbour in graph[j]:
-                    if not visited[neighbour[0]] and neighbour[1] < minWeight:
-                        minWeight = neighbour[1]
-                        u = j
-                        v = neighbour[0]
-        visited[v] = True
-        mst.append((u,v))
-    return mst
+    edges = [] #store edges with weights
+
+    for _ in range(num_vertices - 1):
+        min_weight = float('inf')
+        u, v = -1, -1
+
+        for i in range(num_vertices):
+            if visited[i]:
+                for neighbor, weight in graph[i]:
+                    if not visited[neighbor] and weight < min_weight:
+                        min_weight = weight
+                        u, v = i, neighbor
+
+        if u != -1 and v != -1:
+            visited[v] = True
+            mst.append((u, v))
+            edges.append((u,v,min_weight))
+        else:
+            # Graph might be disconnected
+            break
+    return edges
 ```
 

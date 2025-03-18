@@ -227,3 +227,11 @@ def minimumSpanningTree(graph):
     return edges
 ```
 
+### Kruskal Algorithm
+
+Steps -
+1. Sort every edge in ascending order of weight.
+2. Choose the minimum weighted edge as part of MST only if does'nt form a cycle.
+3. After choosing V-1 edges, terminate the algorithm.
+
+

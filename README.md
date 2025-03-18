@@ -29,6 +29,7 @@ Language Basics
 - [Trie](Heycoach/Trie/trie.md)
 - [Heap](Heycoach/Heap/heap.md)
 - [Graph](Heycoach/Graph/graph.md)
+- [DSU](Heycoach/Graph/dsu.md)
 
 
 DSAlgo

@@ -64,6 +64,19 @@ class Trie:
         self.print_words_from_node(root, res, w)
         return res
 
+   def remove_word(self, word, root):
+      #Write your code here
+      for c in word:
+        if root.children[ord(c)-ord('a')]:
+          temp = root.children[ord(c)-ord('a')]
+          del root
+          root = temp
+        else:
+          return
+
+      if root.is_end:
+        root.is_end = False
+
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()

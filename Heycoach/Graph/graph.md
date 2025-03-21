@@ -234,4 +234,60 @@ Steps -
 2. Choose the minimum weighted edge as part of MST only if does'nt form a cycle.
 3. After choosing V-1 edges, terminate the algorithm.
 
+```python
+def findrep(parent: List[int], u: int) -> int:
+    if u == parent[u]:
+        return u
+    parent[u] = findrep(parent, parent[u])
+    return parent[u]
 
+
+def find(parent: List[int], u: int, v: int) -> bool:
+    rep_u = findrep(parent, u)
+    rep_v = findrep(parent, v)
+    return rep_u == rep_v
+
+
+def merge(parent: List[int], rank: List[int], u: int, v: int) -> None:
+    rep_u = findrep(parent, u)
+    rep_v = findrep(parent, v)
+    if rep_u == rep_v:
+        return
+    if rank[rep_u] > rank[rep_v]:
+        parent[rep_v] = rep_u
+    elif rank[rep_u] < rank[rep_v]:
+        parent[rep_u] = rep_v
+    else:
+        parent[rep_v] = rep_u
+        rank[rep_u] += 1
+
+
+def kruskalMST(graph):
+    num_vertices = len(graph)
+    if num_vertices == 0:
+        return []
+
+    edges = []
+
+    for i in range(num_vertices):
+        for j in range(i + 1, num_vertices):
+            weight = graph[i][j]
+            if weight != 0:
+                edges.append((i, j, weight))
+
+    edges.sort(key=lambda x: x[2])
+
+    parent = [i for i in range(num_vertices)]
+    rank = [0] * num_vertices
+
+    mst = []
+
+    for u, v, weight in edges:
+        same_set = find(parent, u, v)
+
+        if not same_set:
+            mst.append((u, v, weight))
+            merge(parent, rank, u, v)
+
+    return mst
+```

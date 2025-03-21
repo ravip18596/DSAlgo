@@ -53,3 +53,17 @@ def merge(int u, int v) -> None:
         parent[rep_v] = rep_u
         rank[rep_u] += 1
 ```
+
+## Path Compression
+
+Potentially reducing the height of the tree
+
+$$Time-Complexity: O(1)$$
+
+```python
+def find_rep(u: int) -> int:
+    if u == parent[u]:
+        return u
+    parent[u] = find_rep(parent[u])
+    return parent[u]
+```

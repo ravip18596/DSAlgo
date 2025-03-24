@@ -291,3 +291,42 @@ def kruskalMST(graph):
 
     return mst
 ```
+
+## Dijsktra Algorithm (shortest path)
+
+### Network Delay Time
+
+[https://leetcode.com/problems/network-delay-time/description/](https://leetcode.com/problems/network-delay-time/description/)
+
+```python
+import heapq
+import collections
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        graph = collections.defaultdict(list)
+        for u,v,w in times:
+            graph[u].append((v,w))
+        #print(f"graph is {graph}")
+        
+        time = dict()
+        queue = []
+        queue.append((0,k)) # keeping time as first tuple ele for heapify
+        heapq.heapify(queue)
+        while len(queue)>0:
+            node_time,node = heapq.heappop(queue)
+            if node in time.keys():
+                # if already visited
+                continue
+            # mark node visited and store time
+            time[node] = node_time
+            for neigh_node,neigh_time in graph[node]:
+                # check if neigh time is not visited.
+                if neigh_node not in time.keys():
+                    new_time = neigh_time + node_time
+                    heapq.heappush(queue,(new_time,neigh_node))
+
+        print(time)
+        if len(time.keys()) != n:
+            return -1
+        return max(time.values())
+```

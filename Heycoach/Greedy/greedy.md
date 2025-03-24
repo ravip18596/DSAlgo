@@ -17,6 +17,7 @@ Output:
 
 ### Example
 
+```text
 Input:
 4
 1 2 3 6
@@ -35,6 +36,7 @@ After sorting by ending days and selecting non-overlapping problems:
 
 Raman can solve Problem 1 (1, 3) and Problem 4 (6, 8).
 Thus, the maximum number of problems he can solve is 2.
+```
 
 ### Solution
 

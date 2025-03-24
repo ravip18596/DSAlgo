@@ -30,6 +30,7 @@ Language Basics
 - [Heap](Heycoach/Heap/heap.md)
 - [Graph](Heycoach/Graph/graph.md)
 - [DSU](Heycoach/Graph/dsu.md)
+- [Greedy](Heycoach/Greedy/greedy.md)
 
 
 DSAlgo

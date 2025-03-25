@@ -100,3 +100,22 @@ def levelOrder(root):
             queue.append(node.right)
     return result
 ```
+
+## Convert sorted array to Binary Search Tree
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        
+def sortedArrayToBST(nums):
+    if len(nums) == 0:
+        return None
+    mid = len(nums) // 2
+    root = Node(nums[mid])
+    root.left = sortedArrayToBST(nums[:mid])
+    root.right = sortedArrayToBST(nums[mid+1:])
+    return root
+```

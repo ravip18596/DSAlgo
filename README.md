@@ -31,6 +31,7 @@ Language Basics
 - [Graph](Heycoach/Graph/graph.md)
 - [DSU](Heycoach/Graph/dsu.md)
 - [Greedy](Heycoach/Greedy/greedy.md)
+- [Math](Heycoach/Math/math.md)
 - [Bit Manipulation](Heycoach/BitManipulation/bit_manipulation.md)
 
 

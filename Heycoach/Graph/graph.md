@@ -294,6 +294,38 @@ def kruskalMST(graph):
 
 ## Dijsktra Algorithm (shortest path)
 
+### Shortest distance from source node
+
+```python
+import heapq
+
+class Solution:
+    @staticmethod
+    def dijkstra(n, graph, start):
+      #Write your code here
+      queue = [(0, start)]
+      heapq.heapify(queue)
+      dist = {}
+      visited = [False for i in range(n)]
+      for i in range(n):
+        if i not in dist:
+          dist[i] = 'Infinity'
+      while len(queue)>0:
+        node_dist, node = heapq.heappop(queue)
+        if visited[node]:
+          continue
+
+        visited[node] = True
+        dist[node] = node_dist
+        for neigh_node, neigh_dist in graph[node]:
+          if not visited[neigh_node]:
+            new_dist = node_dist + neigh_dist
+            heapq.heappush(queue, (new_dist, neigh_node))
+
+      res = [f"{u} {v}" for u, v in dist.items()]
+      return res
+```
+
 ### Network Delay Time
 
 [https://leetcode.com/problems/network-delay-time/description/](https://leetcode.com/problems/network-delay-time/description/)

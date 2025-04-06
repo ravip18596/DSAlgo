@@ -106,7 +106,7 @@ def isUnDirectedGraphCyclic(node, graph, visited, prev):
     visited[node] = True    
     for neighbour in graph[node]:
         if not visited[neighbour]:
-            return isDirectedGraphCyclic(neighbour, graph, visited, node)
+            return isUnDirectedGraphCyclic(neighbour, graph, visited, node)
         else:
             if neighbour != prev:
                 return True
@@ -132,7 +132,7 @@ if __name__ == '__main__':
 ```
 
 
-### Undirected Graph
+### Directed Graph
 
 - Using DFS
 - Visited

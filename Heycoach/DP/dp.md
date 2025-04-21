@@ -94,6 +94,45 @@ def lcs2(s1, s2):
     return helper(m, n)
 ```
 
+## Longest Common Substring
+
+$$ Time Complexity: O(n×m) $$
+$$ Space Complexity: O(n×m) $$
+
+```python
+def longest_common_substring(str1, str2):
+    len1 = len(str1)
+    len2 = len(str2)
+    
+    # Create a 2D array to store lengths of longest common suffixes
+    dp = [[0] * (len2 + 1) for _ in range(len1 + 1)]
+    
+    max_length = 0
+    end_index = 0  # To store the end index of the longest common substring in str1
+    
+    # Build the dp array
+    for i in range(1, len1 + 1):
+        for j in range(1, len2 + 1):
+            if str1[i - 1] == str2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                if dp[i][j] > max_length:
+                    max_length = dp[i][j]
+                    end_index = i  # Update the end index
+            else:
+                dp[i][j] = 0  # No common substring ends here
+    
+    # Extract the longest common substring
+    if max_length == 0:
+        return ""
+    
+    return str1[end_index - max_length:end_index]
+
+# Example usage:
+str1 = "abcdefgabcdegh"
+str2 = "abcdeghabfvsnm"
+print(longest_common_substring(str1, str2))  # Output: "abcdegh"
+```
+
 ## 0/1 Knapsack Problem
 
 Pseudo Polynomial Time-Complexity: $O(N*W)$

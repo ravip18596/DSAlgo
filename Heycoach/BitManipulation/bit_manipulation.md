@@ -12,7 +12,7 @@ def findKthDigit(n, k):
 
 ## Total Set Bits
 Given a positive integer N, find the total count of set bits for all numbers from 1 to N (both inclusive). A set bit is a binary digit that is set to 1.
-
+```text
 Input:
 
 N = 4
@@ -27,7 +27,7 @@ For 3: 0 1 1 = 2 set bits
 For 4: 1 0 0 = 1 set bit
 For 4: 1 0 1 = 2 set bit
 Therefore, the total set bits is 7.
-
+```
 ```python
 class Solution:
     def count_set_bit(self, N):

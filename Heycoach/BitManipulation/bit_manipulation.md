@@ -10,6 +10,40 @@ def findKthDigit(n, k):
     return (1<<k-1)&n
 ```
 
+## Total Set Bits
+Given a positive integer N, find the total count of set bits for all numbers from 1 to N (both inclusive). A set bit is a binary digit that is set to 1.
+
+Input:
+
+N = 4
+Output:
+
+ 5
+Explanation:
+For numbers from 1 to 4.
+For 1: 0 0 1 = 1 set bit
+For 2: 0 1 0 = 1 set bit
+For 3: 0 1 1 = 2 set bits
+For 4: 1 0 0 = 1 set bit
+For 4: 1 0 1 = 2 set bit
+Therefore, the total set bits is 7.
+
+```python
+class Solution:
+    def count_set_bit(self, N):
+      #Write your code here
+      offset = 1
+      dp = [0]*(n+1)
+
+      for i in range(1, n+1):
+          if 2*offset == i:
+              offset = i
+          
+          dp[i] = 1 + dp[i-offset]
+
+      return sum(dp)
+```
+
 ## Single Number
 
 Given an array, all numbers appear twice except for one number which appears once. Determine that number

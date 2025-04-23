@@ -22,6 +22,7 @@ Language Basics
 - [Queue](Heycoach/Queue/queue.md)
 - [Recursion](Heycoach/Recursion/recursion.md)
 - [Backtracking](Heycoach/Backtracking/backtracking.md)
+- [BFS](Heycoach/BFS/bfs.md)
 - [DP](Heycoach/DP/dp.md)
 - [LinkedList](Heycoach/LinkedList/linked_list.md)
 - [Tree](Heycoach/Tree/tree.md)

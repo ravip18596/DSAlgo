@@ -67,3 +67,35 @@ def find_rep(u: int) -> int:
     parent[u] = find_rep(parent[u])
     return parent[u]
 ```
+
+## Union Find Class
+
+```python
+class UnionFind:
+    def __init__(self):
+        self.parent = {}
+        self.size = {}
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])  # Path compression
+        return self.parent[x]
+
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+
+        if rootX != rootY:
+            # Union by size
+            if self.size[rootX] < self.size[rootY]:
+                self.parent[rootX] = rootY
+                self.size[rootY] += self.size[rootX]
+            else:
+                self.parent[rootY] = rootX
+                self.size[rootX] += self.size[rootY]
+
+    def add(self, x):
+        if x not in self.parent:
+            self.parent[x] = x
+            self.size[x] = 1
+```

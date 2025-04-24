@@ -99,3 +99,77 @@ class UnionFind:
             self.parent[x] = x
             self.size[x] = 1
 ```
+
+## Longest Continuous Range
+
+You are given an array of integers nums. Your task is to find the length of the longest continuous range of consecutive integers in the array.
+
+You need to implement an algorithm that operates in linear time complexity O(n).
+
+```text
+Input:
+
+nums = [10,4,5,20,1,3,2]
+Output:
+
+5
+Explanation:
+The longest consecutive sequence of elements is [1, 2, 3, 4,5], which has a length of 5.
+```
+
+```python
+class UnionFind:
+    def __init__(self):
+        self.parent = {}
+        self.size = {}
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])  # Path compression
+        return self.parent[x]
+
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+
+        if rootX != rootY:
+            # Union by size
+            if self.size[rootX] < self.size[rootY]:
+                self.parent[rootX] = rootY
+                self.size[rootY] += self.size[rootX]
+            else:
+                self.parent[rootY] = rootX
+                self.size[rootX] += self.size[rootY]
+
+    def add(self, x):
+        if x not in self.parent:
+            self.parent[x] = x
+            self.size[x] = 1
+
+class Solution:
+     def longestConsecutiveRange(self, cards):
+        uf = UnionFind()
+        
+        # Add each card to the Union-Find structure
+        for card in set(cards):
+            uf.add(card)
+            # Union with the next consecutive number
+            uf.add(card + 1)
+            uf.union(card, card + 1)
+    
+        # Find the size of each component
+        max_length = 0
+        component_size = {}
+    
+        for card in set(cards):
+            root = uf.find(card)
+            if root in component_size:
+                component_size[root] += 1
+            else:
+                component_size[root] = 1
+    
+        # The maximum size of any component is the answer
+        max_length = max(component_size.values())
+    
+        return max_length
+```

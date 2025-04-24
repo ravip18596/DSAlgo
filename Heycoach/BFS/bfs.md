@@ -52,3 +52,33 @@ class Solution:
 
 
 ```
+
+## Path Existence in an Undirected Graph
+
+Return true if a route exists between the start and end nodes, otherwise return false.
+
+```python
+from collections import defaultdict
+
+class Solution:
+    def validPath(self, n, edges, source, destination):
+      graph = defaultdict(list)
+      for u,v in edges:
+        graph[u].append(v)
+        graph[v].append(u)
+
+      queue = [source]
+      visited = [False]*n
+
+      while queue:
+        node = queue.pop(0)
+        visited[node] = True
+        if node == destination:
+          return True
+
+        for neigh in graph[node]:
+          if not visited[neigh]:
+            queue.append(neigh)
+
+      return False
+```

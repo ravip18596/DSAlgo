@@ -210,3 +210,38 @@ def buildTree(inorder, preorder):
     root.right = buildTree(inorder[mid + 1:], preorder[mid + 1:])
     return root
 ```
+
+## Top View of a binary tree
+
+1. use a breadth-first search (BFS) approach with a queue.
+2. The idea is to keep track of the horizontal distance of each node from the root and store the first node encountered at each horizontal distance.
+
+```python
+class Solution:
+  def topView(self, root):
+    if not root:
+      return []
+    
+    # This will store the first node at each horizontal distance
+    top_view_map = {}
+    # Queue for BFS: stores pairs of (node, horizontal_distance)
+    queue = [(root, 0)]
+    # Horizontal distance of the root is 0
+    min_hd = 0
+    max_hd = 0
+    while queue:
+      node, hd = queue.pop(0)
+      # If this is the first time we are visiting this horizontal distance
+      if hd not in top_view_map:
+        top_view_map[hd] = node.val
+
+      min_hd = min(min_hd, hd)
+      max_hd = max(max_hd, hd)
+
+      if node.left:
+        queue.append((node.left, hd-1))
+      if node.right:  
+        queue.append((node.right, hd+1))
+
+    return [top_view_map[hd] for hd in range(min_hd, max_hd+1)]
+```

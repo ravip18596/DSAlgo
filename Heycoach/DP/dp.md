@@ -132,6 +132,40 @@ str1 = "abcdefgabcdegh"
 str2 = "abcdeghabfvsnm"
 print(longest_common_substring(str1, str2))  # Output: "abcdegh"
 ```
+##  Longest Increasing Subsequence
+
+```text
+Example 1:
+
+Input: nums = [10,9,2,5,3,7,101,18]
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+
+Example 2:
+
+Input: nums = [0,1,0,3,2,3]
+Output: 4
+
+Example 3:
+
+Input: nums = [7,7,7,7,7,7,7]
+Output: 1
+```
+
+```python
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        #Write your code here;
+        n = len(nums)
+        dp = [1]*n
+        for i in range(1, n):
+            # we need to find the count of sequence at the end of s[i]
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+        
+        return max(dp)
+```
 
 ## 0/1 Knapsack Problem
 

@@ -11,6 +11,7 @@ Language Basics
 
 - [Sorting](Heycoach/Sorting/sorting.md)
 - [Searching](Heycoach/Searching/searching.md)
+- [Binary Search](Heycoach/Searching/BinarySearch/binarysearch.md)
 - [TwoPointer](Heycoach/Array/TwoPointer/twoPointer.md)
 - [SlidingWindow](Heycoach/Array/SlidingWindow/slidingWindow.md)
 - [Matrix](Heycoach/Array/Matrix/matrix.md)

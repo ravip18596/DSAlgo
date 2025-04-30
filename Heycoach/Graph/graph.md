@@ -423,9 +423,8 @@ class Solution:
 
 ## identify all the critical connections in a network of servers
 
-```text
 Sample Input:
-
+```text
 7 8
 6 1
 4 2
@@ -435,12 +434,12 @@ Sample Input:
 1 2
 2 0
 1 3
-
+```text
 Sample Output:
+```text
 1 6
 2 4
 1 3
-
 Constraints:
 2 <= n <= 10^5
 n - 1 <= connections.length <= 10^5

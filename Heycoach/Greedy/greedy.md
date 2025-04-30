@@ -72,7 +72,12 @@ weight = [10,20,30]
 Output
 240.00
 Explanation:
-Initial W = 50. take item 1 with weight 10 and value 60 so W is now 50 - 10 = 40. take item 2 with weight 20 and value 100 so W is now 40 - 20 = 20. Now, we cannot take item 3 completely so we will just take W = 20 amount of it and the value we will get out of it is 80 and W becomes 20 - 20 = 0. so total value is 60 + 100 + 80 = 240. So,Total maximum value of item we can have is 240.00 from the given capacity of sack.
+Initial W = 50. take item 1 with weight 10 and value 60 so W is now 50 - 10 = 40.
+take item 2 with weight 20 and value 100 so W is now 40 - 20 = 20.
+Now, we cannot take item 3 completely so we will just take W = 20 amount of it
+and the value we will get out of it is 80 and W becomes 20 - 20 = 0.
+so total value is 60 + 100 + 80 = 240.
+So,Total maximum value of item we can have is 240.00 from the given capacity of sack.
 ```
 
 Solution

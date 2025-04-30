@@ -391,3 +391,135 @@ class Solution:
            
        return connected_component
 ```
+
+## Star Graph
+
+```text
+There is an undirected star graph consisting of n nodes labeled from 1 to n. A star graph is a graph where there is one center node and exactly n - 1 edges that connect the center node with every other node.
+
+You are given a 2D integer array edges where each edges[i] = [ui, vi] indicates that there is an edge between the nodes ui and vi. Return the center of the given star graph.
+```
+
+Solution
+```python
+class Solution:
+    def find_center(self, edges):
+      from collections import defaultdict
+
+      graph = defaultdict(list)
+      indegree = {}
+      for u,v in edges:
+        graph[u].append(v)
+        graph[v].append(u)
+        indegree[u] = indegree.get(u, 0) + 1
+        indegree[v] = indegree.get(v, 0) + 1
+
+      n = len(indegree)
+      for node, val in indegree.items():
+        if val == n-1:
+          return node
+      return -1
+```
+
+## identify all the critical connections in a network of servers
+
+```text
+Sample Input:
+
+7 8
+6 1
+4 2
+2 5
+1 5
+0 1
+1 2
+2 0
+1 3
+
+Sample Output:
+1 6
+2 4
+1 3
+
+Constraints:
+2 <= n <= 10^5
+n - 1 <= connections.length <= 10^5
+0 <= ai, bi <= n - 1
+ai != bi
+Connections are unique and undirected.
+Explanation: In this example, the network consists of 7 servers and 8 connections. The critical connections are between servers 1-6, 2-4, and 1-3. Removing any of these connections would result in at least one server being isolated from the rest of the network.
+```
+
+- we can use a depth-first search (DFS) approach.
+- The idea is to find bridges in the graph, which are edges that, when removed, increase the number of connected components in the graph.
+
+Here's a step-by-step explanation of how to implement this:
+
+- Graph Representation: Use an adjacency list to represent the graph.
+- DFS Traversal: Perform a DFS traversal to explore the graph. During the traversal, maintain discovery and low values for each node:
+  - discovery[u]: The time when node u is visited.
+  - low[u]: The lowest discovery time reachable from node u.
+- Bridge Condition: For each edge (u, v), if low[v] > discovery[u], then (u, v) is a critical connection (bridge).
+- Backtracking: Update the low values during the DFS backtracking phase.
+- Output: Collect all the critical connections and print them.
+
+```python
+def criticalConnections(n, connections):
+    from collections import defaultdict
+
+    # Create an adjacency list for the graph
+    graph = defaultdict(list)
+    for u, v in connections:
+        graph[u].append(v)
+        graph[v].append(u)
+
+    # Initialize variables for DFS
+    discovery = [-1] * n
+    low = [-1] * n
+    bridges = []
+    time = [0]  # Use a list to keep track of time as a mutable object
+
+    def dfs(u, parent):
+        discovery[u] = low[u] = time[0]
+        time[0] += 1
+
+        for v in graph[u]:
+            if v == parent:  # Ignore the edge back to the parent
+                continue
+            if discovery[v] == -1:  # If v is not visited
+                dfs(v, u)
+                low[u] = min(low[u], low[v])  # Update low value
+
+                # Check if the edge (u, v) is a bridge
+                if low[v] > discovery[u]:
+                    bridges.append((u, v))
+            else:  # If v is already visited
+                low[u] = min(low[u], discovery[v])  # Update low value
+
+    # Start DFS from each unvisited node
+    for i in range(n):
+        if discovery[i] == -1:
+            dfs(i, -1)
+
+    return bridges
+
+# Sample Input
+n = 7
+connections = [
+    [6, 1],
+    [4, 2],
+    [2, 5],
+    [1, 5],
+    [0, 1],
+    [1, 2],
+    [2, 0],
+    [1, 3]
+]
+
+# Get critical connections
+result = criticalConnections(n, connections)
+
+# Print the result
+for u, v in result:
+    print(u, v)
+```

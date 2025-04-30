@@ -345,3 +345,43 @@ def coin_change(self, coins, amt):
 
     return dp[0][amt]
 ```
+
+## Count distinct subsequences
+
+Problem - Given a string s, your task is to calculate the number of distinct non-empty subsequences of s. Due to the potential size of the answer, return it modulo 1000000007 (1e9 + 7).
+
+1. <b>Iterate through the string</b>: For each character in the string, update the dp array:
+2. The number of distinct subsequences that can be formed by including the current character is equal to the number of distinct subsequences formed by the previous characters (dp[i-1]), plus the new subsequences formed by adding the current character to all previous subsequences. Thus, <b>dp[i] = 2 * dp[i-1].</b>
+3. <b>Handle Duplicates</b>: To avoid counting duplicates, keep track of the last occurrence of each character. If the current character has appeared before, subtract the number of subsequences that were counted before its last occurrence.
+4. <b>Final Count</b>: The result will be dp[n] - 1, where n is the length of the string (subtracting 1 to exclude the empty subsequence).
+
+```python
+def distinctSubseqII(s: str) -> int:
+    MOD = 1000000007
+    n = len(s)
+    
+    # dp[i] will store the number of distinct subsequences of s[:i]
+    dp = [0] * (n + 1)
+    dp[0] = 1  # Base case: empty string has one subsequence (the empty subsequence)
+    
+    # last occurrence of each character
+    last = {}
+    
+    for i in range(1, n + 1):
+        char = s[i - 1]
+        dp[i] = (2 * dp[i - 1]) % MOD  # Double the count of subsequences
+        
+        if char in last:
+            # Subtract the count of subsequences that were counted before the last occurrence of char
+            dp[i] = (dp[i] - dp[last[char] - 1]) % MOD
+        
+        # Update the last occurrence of the character
+        last[char] = i
+    
+    # We subtract 1 to exclude the empty subsequence
+    return (dp[n] - 1 + MOD) % MOD
+
+# Example usage
+s = "abc"
+print(distinctSubseqII(s))  # Output: 7
+```

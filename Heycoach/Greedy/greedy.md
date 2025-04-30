@@ -104,11 +104,11 @@ def fractional_knapsack(values, weights, W):
     return total_value
 
 # Example usage
-N = 3
-W = 50
-values = [60, 100, 120]
-weights = [10, 20, 30]
+N = 4
+W = 25
+values = [30, 40, 50, 60]
+weights = [5, 10, 15, 20]
 
 max_value = fractional_knapsack(values, weights, W)
-print(f"{max_value:.2f}")  # Output: 240.00
+print(f"{max_value:.2f}")  # Output should be 103.33
 ```

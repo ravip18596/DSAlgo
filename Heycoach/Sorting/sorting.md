@@ -153,3 +153,43 @@ if __name__ == "__main__":
 ```
 
 ## Heap Sort
+
+## 1636. Sort Array by Increasing Frequency
+
+Given an array of integers nums, sort the array in increasing order based on the frequency of the values. If multiple values have the same frequency, sort them in decreasing order.
+
+Return the sorted array.
+
+ 
+```text
+Example 1:
+
+Input: nums = [1,1,2,2,2,3]
+Output: [3,1,1,2,2,2]
+Explanation: '3' has a frequency of 1, '1' has a frequency of 2, and '2' has a frequency of 3.
+```
+
+Solution
+```python
+from functools import cmp_to_key
+
+class Solution:
+    def frequencySort(self, nums: List[int]) -> List[int]:
+        freq = {}
+        for n in nums:
+            freq[n] = freq.get(n,0)+1
+
+        def compare(x,y):
+            if freq[x] < freq[y]:
+                return -1
+            elif freq[x] > freq[y]:
+                return 1
+            else:
+                if x<=y:
+                    return 1
+                else:
+                    return -1
+
+        nums.sort(key=cmp_to_key(compare))
+        return nums
+```

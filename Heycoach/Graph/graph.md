@@ -142,16 +142,17 @@ if __name__ == '__main__':
 
 ```python
 def isDirectedGraphCyclic(node, graph, visited):
+    if visited[node]==2:
+        return False
+    if visited[node]==1:
+        return True
     visited[node] = 1    
     for neighbour in graph[node]:
-        if not visited[neighbour]:
-            return isDirectedGraphCyclic(neighbour, graph, visited)
-        else:
-            if visited[neighbour] == 1:
-                print("Graph is Cyclic")
-                return
-    
+        if isDirectedGraphCyclic(neighbour, graph, visited):
+            return True
+
     visited[node] = 2
+    return False
     
 if __name__ == '__main__':
     graph = {
@@ -161,8 +162,12 @@ if __name__ == '__main__':
         3: [3]
     }
     visited = [0] * len(graph)
-    res = False
-    isDirectedGraphCyclic(0, graph, visited)
+    for i in range(n):
+        if visited[i]==0:
+            if isDirectedGraphCyclic(i, graph, visited):
+                return True
+    
+    return False
 ```
 
 ## Topological Sort

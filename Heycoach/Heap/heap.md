@@ -135,7 +135,7 @@ def topKFrequent(arr, k):
         freq[i] = freq.get(i, 0) + 1
     pq = []
     for key, value in freq.items():
-        heapq.heappush(pq, (-value, key))
+        heapq.heappush(pq, (value, key))
         if len(pq) > k:
             heapq.heappop(pq)
     res = []

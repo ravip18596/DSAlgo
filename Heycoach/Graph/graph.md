@@ -102,33 +102,37 @@ Given a graph, find whether the graph contains a cycle or not.
 - if we are able to get a visited node other than prev node from where I came from, as an adjacent node at any point of time during DFS, then there exists a cycle.
 
 ```python
-def isUnDirectedGraphCyclic(node, graph, visited, prev):
-    visited[node] = True    
-    for neighbour in graph[node]:
-        if not visited[neighbour]:
-            return isUnDirectedGraphCyclic(neighbour, graph, visited, node)
-        else:
-            if neighbour != prev:
-                return True
-    
-if __name__ == '__main__':
-    graph = {
-        0: [1, 2],
-        1: [2],
-        2: [0, 3],
-        3: [3]
-    }
-    visited = [False] * len(graph)
-    prev = None
-    res = False
-    for i in range(len(graph)):
-        if not visited[i]:
-            res = isUnDirectedGraphCyclic(i, graph, visited, prev)
-            if res:
-                print("Directe Graph is Cyclic")
-                break
-    if not res:
-        print("Directe Graph is Acyclic")
+from collections import defaultdict
+
+class Solution:
+	def dfs(self, node, graph, visited, prev):
+	    visited[node] = True
+	    for neigh in graph[node]:
+	        if not visited[neigh]:
+	            if self.dfs(neigh, graph, visited, node):
+	                return True
+	        else:
+	            if neigh!=prev:
+	                return True
+	                
+	    return False
+	            
+	    
+	def isCycle(self, V, edges):
+		#Code here
+		graph = defaultdict(list)
+		for u,v in edges:
+		    graph[u].append(v)
+		    graph[v].append(u)
+		    
+		visited = [False]*V
+		prev = None
+		for i in range(V):
+		    if not visited[i]:
+		        if self.dfs(i, graph, visited, prev):
+		            return True
+		            
+		return False
 ```
 
 

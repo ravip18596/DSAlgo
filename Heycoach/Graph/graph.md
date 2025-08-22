@@ -236,6 +236,43 @@ def minimumSpanningTree(graph):
     return edges
 ```
 
+### Prim MST on undirected graph using priority queue
+- Time Complexity - O((E+V)*log(V))
+- Space Complexity - O(E+V)
+
+```python
+from collections import defaultdict
+import heapq
+
+class Solution:
+    def spanningTree(self, V, edges):
+        # code here
+        graph = defaultdict(list)
+        for u,v,w in edges:
+            graph[u].append((v,w))
+            graph[v].append((u,w))
+            
+        visited = [False]*V
+        pq = []
+        total_wt = 0
+        # starting with vertex 0
+        heapq.heappush(pq, (0, 0)) # (weight, vertex_no)
+        while pq:
+            wt, u = heapq.heappop(pq)
+            if visited[u]:
+                continue
+                # Skip if already visited
+            total_wt += wt
+            visited[u] = True
+            for neigh, w in graph[u]:
+                if not visited[neigh]:
+                    heapq.heappush(pq, (w, neigh))
+                        
+        return total_wt
+```
+
+
+
 ### Kruskal Algorithm
 
 Steps -

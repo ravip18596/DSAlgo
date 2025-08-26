@@ -2,8 +2,6 @@
 
 ## Find number of connected components in undirected graph
 
-Question - [https://www.geeksforgeeks.org/dsa/find-paths-given-source-destination/](https://www.geeksforgeeks.org/dsa/find-paths-given-source-destination/)
-
 ```python
 from collections import defaultdict
 
@@ -32,6 +30,8 @@ class Solution:
 ```
 
 ## Find all paths in directed Acyclic Graph (DAG) when given source and destination
+
+Question - [https://www.geeksforgeeks.org/dsa/find-paths-given-source-destination/](https://www.geeksforgeeks.org/dsa/find-paths-given-source-destination/)
 
 ```python
 from collections import defaultdict

@@ -12,6 +12,18 @@ def exp(a, n):
     return a * exp(a, n-1)
 ```
 
+## Factorial
+
+$$ T(N) = T(N-1) + O(1) $$
+$$ Time complexity: O(N) $$
+
+```python
+def factorialRec(n):
+    if n==1:
+        return 1
+    return factorialRec(n-1)*n
+```
+
 ## Binary Exponentiation
 
 $$ Time-Complexity: O(N) $$
@@ -25,7 +37,7 @@ def binexp(a, n):
     
     if n&1 == 1:
         # odd
-        return binexp(a, (n-1)//2) * binexp(a, (n-1)//2)
+        return a * binexp(a, (n-1)//2) * binexp(a, (n-1)//2)
     else:
         # even
         return binexp(a, n//2) * binexp(a, n//2)
@@ -41,7 +53,7 @@ def binexp(a, n):
 
     if n&1 == 1:
         temp = binexp(a, (n-1)//2)
-        return temp * temp
+        return a * temp * temp
     else:
         temp = binexp(a, n//2)
         return temp * temp

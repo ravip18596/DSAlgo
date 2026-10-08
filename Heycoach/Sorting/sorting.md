@@ -45,6 +45,24 @@ if __name__ == "__main__":
     print(arr)
 ```
 
+```python
+def findMinIndex(arr, i):
+    min_idx = i
+    for k in range(i, len(arr)):
+        if arr[min_idx] >= arr[k]:
+            min_idx = k
+
+    return min_idx
+
+def selection_sort(arr):
+    for i in range(len(arr)):
+        j = findMinIndex(arr, i)
+        # swap
+        arr[i], arr[j] = arr[j], arr[i]
+
+    return arr
+```
+
 ## Insertion Sort
 
 - Time Complexity: O(n^2)
@@ -72,6 +90,44 @@ if __name__ == "__main__":
 ```
 
 ## Merge Sort
+### Pythonic Solution
+```python
+# Merge Sort
+def merge(arr1, arr2):
+    i, j = 0, 0
+    n1, n2 = len(arr1), len(arr2)
+    res = []
+    while i<n1 and j<n2:
+        if arr1[i] < arr2[j]:
+            res.append(arr1[i])
+            i+=1
+        else:
+            res.append(arr2[j])
+            j+=1
+
+    if i<n1:
+        res.extend(arr1[i:])
+
+    if j<n2:
+        res.extend(arr2[j:])
+
+    return res
+
+
+def mergeSort(arr):
+    # Base condition
+    if len(arr) <= 1:
+        return arr
+    n = len(arr)
+    mid = n//2
+    left_half = mergeSort(arr[:mid])
+    right_half = mergeSort(arr[mid:])
+
+    return merge(left_half, right_half)
+```
+
+### C++ style python solution
+
 
 ## Quick Sort
 

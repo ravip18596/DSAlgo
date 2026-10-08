@@ -1,17 +1,21 @@
-arr = [10, 4, 3, 50, 23, 90]
+# Selection Sort
 
-first, second, third = arr[0], None, None
-n = len(arr)
+def findMinIndex(arr, i):
+    min_idx = i
+    for k in range(i, len(arr)):
+        if arr[min_idx] >= arr[k]:
+            min_idx = k
 
-for i in range(1, n):
-    if arr[i] > first:
-        third = second
-        second = first
-        first = arr[i]
-    elif second != None and arr[i] > second and first != arr[i]:
-        third = second
-        second = arr[i]
-    elif third !=None and arr[i] > third and second != arr[i]:
-        third = arr[i]
+    return min_idx
 
-print(f'first:{first}, second:{second}, third:{third}')
+def selection_sort(arr):
+    for i in range(len(arr)):
+        j = findMinIndex(arr, i)
+        # swap
+        arr[i], arr[j] = arr[j], arr[i]
+
+    return arr
+    
+
+if __name__ == '__main__':
+    print(selection_sort([5,3,1,4,2]))

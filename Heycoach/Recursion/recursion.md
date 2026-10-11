@@ -112,3 +112,68 @@ def generate_paranthesis(n):
 
     return result
 ```
+
+## Fibonacci
+
+```python
+def fibonacci(n):
+    if n<2:
+        return n
+
+    return n+fibonacci(n-1)
+
+if __name__ == '__main__':
+    print(fibonacci(3))
+```
+
+## Sqrt
+
+### Iterative
+```python
+def sqrt(n):
+    if n<2:
+        return n
+
+    start,end = 1, n//2
+    while start <= end:
+        mid = (start+end)>>1
+        if mid * mid == n:
+            return mid
+        elif mid*mid < n:
+            start = mid+1
+        else:
+            end = mid-1
+    return end
+        
+        
+if __name__ == '__main__':
+    print(sqrt(10))
+```
+
+### Recursive Solution
+
+```python
+def sqrt_rec(n, low, high, ans=0):
+    if low>high:
+        return ans
+    mid = (low+high)>>1
+    sq = mid*mid
+
+    if sq == n:
+        return mid
+    if sq < n:
+        return sqrt_rec(n, mid+1, high, mid)
+    else:
+        return sqrt_rec(n, low, mid-1, ans)
+
+
+def sqrt(n):
+    if n<2:
+        return n
+
+    low, high = 1, n//2
+    return sqrt_rec(n, low, high)
+
+if __name__ == '__main__':
+    print(sqrt(10))
+```

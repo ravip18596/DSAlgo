@@ -48,6 +48,8 @@ if __name__ == "__main__":
 ```python
 def findMinIndex(arr, i):
     min_idx = i
+
+
     for k in range(i, len(arr)):
         if arr[min_idx] >= arr[k]:
             min_idx = k
@@ -134,6 +136,10 @@ def mergeSort(arr):
 - Time Complexity: O(n log n)
 - Space Complexity: O(log n)
 
+### Logic
+- Partition the array in such way that it is in correct position wrt sorted array
+- Select pivot as last element such all the smaller elements are left of pivot and rest on the right
+ 
 ```python
 def partition(arr, low, high):
     # Region 1: elements less than pivot

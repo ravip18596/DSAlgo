@@ -1,21 +1,23 @@
-# Selection Sort
+def sqrt_rec(n, low, high, ans=0):
+    if low>high:
+        return ans
+    mid = (low+high)>>1
+    sq = mid*mid
 
-def findMinIndex(arr, i):
-    min_idx = i
-    for k in range(i, len(arr)):
-        if arr[min_idx] >= arr[k]:
-            min_idx = k
+    if sq == n:
+        return mid
+    if sq < n:
+        return sqrt_rec(n, mid+1, high, mid)
+    else:
+        return sqrt_rec(n, low, mid-1, ans)
 
-    return min_idx
 
-def selection_sort(arr):
-    for i in range(len(arr)):
-        j = findMinIndex(arr, i)
-        # swap
-        arr[i], arr[j] = arr[j], arr[i]
+def sqrt(n):
+    if n<2:
+        return n
 
-    return arr
-    
+    low, high = 1, n//2
+    return sqrt_rec(n, low, high)
 
 if __name__ == '__main__':
-    print(selection_sort([5,3,1,4,2]))
+    print(sqrt(10))

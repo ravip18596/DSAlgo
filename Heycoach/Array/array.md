@@ -22,6 +22,23 @@ def kadane_algorithm_with_indices(arr):
 
     return max_sum, start, end
 
+class Solution:
+    def maxSubArray(self, nums: list[int]) -> int:
+        curr_sum = 0 
+        max_so_far = float('-inf') # Handle all-negative arrays naturally
+        
+        for num in nums:
+            curr_sum += num
+            
+            # 1. Update max_so_far first so negative values are recorded
+            max_so_far = max(max_so_far, curr_sum)
+            
+            # 2. Then reset curr_sum if it drops below zero
+            if curr_sum < 0:
+                curr_sum = 0
+
+        return max_so_far
+
 # Example usage:
 # arr = [-2, -3, 4, -1, -2, 1, 5, -3]
 # max_sum, start, end = kadane_algorithm_with_indices(arr)

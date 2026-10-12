@@ -26,6 +26,36 @@ public class Solution {
 }
 ```
 
+```python
+def minSubArrayLen(self, target: int, nums: list[int]) -> int:
+        res = float('inf')
+        j = 0
+        n = len(nums)
+        prefix_sum = [0]*n
+        prefix_sum[0] = nums[0]
+        for i in range(1, n):
+            prefix_sum[i] = prefix_sum[i-1] + nums[i]
+        
+        i, j = 0, 0
+        curr_sum = 0
+        while j<n:
+            if i==0:
+                # starting with index j, because no need to substract prefix_sum[i-1] because i-1 will be -1 which is # # not valid index
+                curr_sum = prefix_sum[j]
+            else:
+                curr_sum = prefix_sum[j] - prefix_sum[i-1]
+            
+            if curr_sum >= target:
+                # window can be reduced, because we already have the sum, so move the left pointer forward
+                res = min(res, j-i+1)
+                i+=1
+            elif curr_sum < target:
+                # sum is below target, so window needs to be increased so move the right pointer
+                j+=1
+
+        return res if res!=float('inf') else 0
+```
+
 ## Maximum Sum of Almost Unique Subarray
 
 >Problem Statement [https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray/description/](https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray/description/)

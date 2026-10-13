@@ -61,6 +61,62 @@ def minSubArrayLen(self, target: int, nums: list[int]) -> int:
 >Problem Statement [https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray/description/](https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray/description/)
 
 
+- Python Solution 1
+```python
+# For fixed-length subarray problems, both pointers must move together (or you just use a single loop).
+# Time Complexity: O(nk)
+# Space Complexity: O(k)
+
+from collections import Counter
+
+class Solution:
+    def check_subarray_has_m_unique_ele(self, nums, s, e, m):
+        counter = Counter(nums[s:e])
+        return len(counter)>=m
+
+    def maxSum(self, nums: List[int], m: int, k: int) -> int:
+        n = len(nums)
+        max_sum = 0
+        for i in range(n-k+1):
+            curr_sum = sum(nums[i:i+k])
+            if curr_sum >= max_sum:
+                if self.check_subarray_has_m_unique_ele(nums, i, i+k, m):
+                    max_sum = curr_sum
+            
+        return max_sum
+
+```
+- Python solution 2
+
+```python
+# Time Complexity: O(N)
+# Space Complexity: O(k)
+from collections import Counter
+
+class Solution:
+    def maxSum(self, nums: List[int], m: int, k: int) -> int:
+        n = len(nums)
+        max_sum = 0
+        curr_sum = sum(nums[:k])
+        counter = Counter(nums[:k])
+        if len(counter)>=m:
+            max_sum = curr_sum
+
+        for i in range(1,n-k+1):
+            # i is left window boundary
+            # i+k-1 is right window boundary
+            curr_sum = curr_sum + nums[i-1+k] - nums[i-1]
+            counter[nums[i-1]] -= 1
+            if counter[nums[i-1]] <= 0:
+                del counter[nums[i-1]]
+            counter[nums[i+k-1]] += 1
+            
+            if curr_sum >= max_sum:
+                if len(counter)>=m:
+                    max_sum = curr_sum
+            
+        return max_sum
+```
 - Go
 
 ```go
@@ -119,7 +175,5 @@ def unique_chars_in_substring(chars: List[str], L: int) -> List[List[str]]:
             res.append(seq[left:right+1])
             left+=1
 
-    return res
-```
     return res
 ```

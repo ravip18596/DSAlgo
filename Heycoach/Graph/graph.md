@@ -350,13 +350,11 @@ class Solution:
     def dijkstra(n, graph, start):
       #Write your code here
       queue = [(0, start)]
-      heapq.heapify(queue)
       dist = {}
       visited = [False for i in range(n)]
       for i in range(n):
-        if i not in dist:
-          dist[i] = 'Infinity'
-      while len(queue)>0:
+          dist[i] = float('inf')
+      while queue:
         node_dist, node = heapq.heappop(queue)
         if visited[node]:
           continue

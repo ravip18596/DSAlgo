@@ -153,50 +153,77 @@ func isSafe(i,j,x,y int) bool{
 using None as level counter
 
 ```python
-class Solution:
-    def orangesRotting(self, grid: List[List[int]]) -> int:
-        # count how many fresh oranges are there
-        rows, cols = len(grid), len(grid[0])
-        queue = []
-        
-        fresh = 0
-        for i in range(rows):
-            for j in range(cols):
-                if grid[i][j] == 1:
-                    fresh+=1
-                elif grid[i][j] == 2:
-                    queue.append((i, j))
-        
-        queue.append(None)
-        if fresh == 0:
-            return 0        
+"""
+You are given an m x n `grid` where each cell can have one of three values:
+- 0 representing an empty cell,
+- 1 representing a fresh orange, or
+- 2 representing a rotten orange.
 
-        directions = [(-1,0), (0, 1), (1, 0), (0, -1)]
-        level = 0
-        # first level
-        while len(queue) > 0:
-            front = queue[0]
-            # deque
-            queue = queue[1:]
-            if front is None:
-                level += 1
-                if len(queue)>0:
-                    queue.append(None)
-            else:
-                i, j = front
-                for k in range(len(directions)):
-                    new_i, new_j = i + directions[k][0], j + directions[k][1]
+Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.
 
-                    if new_i<rows and new_i>=0 and new_j<cols and new_j>=0 and grid[new_i][new_j] == 1:
-                        queue.append((new_i, new_j))
-                        # mark fresh orange visited by making it rotten
-                        grid[new_i][new_j] = 2
-                        fresh -= 1
-                    
-        if fresh > 0:
-            return -1
+Return the minimum number of minutes that must elapse until no cell has a fresh orange.
+If this is impossible, return -1.
+
+Constraints:
+- m == len(grid)
+- n == len(grid[i])
+- 1 <= m, n <= 10
+- grid[i][j] is 0, 1, or 2
+"""
+from typing import List
+from collections import deque
+
+
+
+def orangesRotting(grid: List[List[int]]) -> int:
+    r, c = len(grid), len(grid[0])
+    fresh_oranges = 0
+    rotten_oranges = deque()
+    for i in range(r):
+        for j in range(c):
+            if grid[i][j] == 1:
+                fresh_oranges += 1
+            elif grid[i][j] == 2:
+                rotten_oranges.append((i,j))
+
+    rotten_oranges.append(None)
+    if fresh_oranges == 0:
+        return 0
+
+    t = 0
+    while rotten_oranges:
+        top = rotten_oranges.popleft()
+        if top is None:
+            if len(rotten_oranges) > 0:
+                rotten_oranges.append(None)
+                t += 1
+            continue
+
+        directions = [(1,0), (0,-1), (-1, 0), (0, 1)]
+        for direction in directions:
+            x_new, y_new = top[0] + direction[0], top[1] + direction[1]
+            if x_new >=0 and x_new<r and y_new>=0 and y_new<c:
+                if grid[x_new][y_new] == 1:
+                    grid[x_new][y_new] = 2
+                    rotten_oranges.append((x_new, y_new))
+                    fresh_oranges -= 1
+
+    return t if fresh_oranges == 0 else -1
+
+if __name__ == '__main__':
+    grid1 = [[2, 1, 1], [1, 1, 0], [0, 1, 1]]
+    print(orangesRotting(grid1))
+
+    grid2 = [[2, 1, 1], [0, 1, 1], [1, 0, 1]]
+    print(orangesRotting(grid2))
+
+    grid3 = [[0, 2]]
+    print(orangesRotting(grid3))
     
-        return level-1
+    """
+    Time complexity: O(M*N)
+    Space Complexity: O(M+N)
+    """
 ```
 
 - BFS by passing level info into the queue

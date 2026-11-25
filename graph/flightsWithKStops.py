@@ -29,9 +29,6 @@ def findCheapestPrice(n: int, flights: List[List[int]], src: int, dst: int, k: i
 
     # (dist, node, stops)
     queue = [(0, src, 0)]
-    distance = {}
-    for i in range(n):
-        distance[i] = float('inf')
 
     best_stops = [float('inf')]*n
 
@@ -41,11 +38,13 @@ def findCheapestPrice(n: int, flights: List[List[int]], src: int, dst: int, k: i
             return dist
         if stops > k:
             continue
+
+        # this allows a node visited later on with *strickly smaller stop count* can unlock routes to dst that
+        # previously exceeded k
         if stops >= best_stops[node]:
             continue
 
         best_stops[node] = stops
-        distance[node] = dist
 
         for neigh_node, neigh_dist in graph[node]:
             heapq.heappush(queue, (dist+neigh_dist, neigh_node, stops+1))
